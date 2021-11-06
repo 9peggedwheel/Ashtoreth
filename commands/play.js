@@ -3,6 +3,7 @@ const ytSearch = require('yt-search');
 
 //Global queue for your bot. Every server will have a key and value pair in this map. { guild.id, queue_constructor{} }
 const queue = new Map();
+import { joinVoiceChannel } from "@discordjs/voice";
 
 module.exports = {
     name: 'play',
@@ -62,7 +63,12 @@ module.exports = {
     
                 //Establish a connection and play the song with the vide_player function.
                 try {
-                    const connection = await voice_channel.join();
+                    const connection = await joinVoiceChannel(
+                    {
+                        channelId: message.member.voice.channel.id,
+                        guildId: message.guild.id,
+                        adapterCreator: message.guild.voiceAdapterCreator
+                    });
                     queue_constructor.connection = connection;
                     video_player(message.guild, queue_constructor.songs[0]);
                 } catch (err) {
