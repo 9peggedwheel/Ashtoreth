@@ -6,6 +6,6 @@ module.exports = client => {
         member.roles.add(welcomeRole);
         const channel = member.guild.channels.cache.get(channelId);
         channel.send(`Welcome <@${member.id}> to the server!`);
-        channel.send('https://imgur.com/BJQMzfn.jpg');
+        channel.send('https://media.discordapp.net/attachments/906406839736999957/906417653344784384/BJQMzfn.png');
     });
 }
