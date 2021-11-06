@@ -1,5 +1,6 @@
 const ytdl = require('ytdl-core');
 const ytSearch = require('yt-search');
+const { joinVoiceChannel } = require("@discordjs/voice");
 
 //Global queue for your bot. Every server will have a key and value pair in this map. { guild.id, queue_constructor{} }
 const queue = new Map();
@@ -11,7 +12,7 @@ module.exports = {
     description: 'Advanced music bot',
     async execute(message, args, command, client, Discord){
         
-        import { joinVoiceChannel } from "@discordjs/voice";
+        
 
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
         const voice_channel = message.member.voice.channel;
