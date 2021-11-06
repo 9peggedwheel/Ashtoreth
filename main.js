@@ -73,7 +73,7 @@ client.on('messageCreate', message => {
     } else if (command === 'unmute') {
         client.commands.get('unmute').execute(message, args);
     } else if (command === 'play') {
-        client.commands.get('play').execute(message, args);
+        client.commands.get('play').execute(message, args, command, client);
     } else if (command === 'leave') {
         client.commands.get('leave').execute(message, args);
     } else if (command === 'info') {

@@ -9,7 +9,7 @@ module.exports = {
     aliases: ['skip', 'stop'], //We are using aliases to run the skip and stop command follow this tutorial if lost: https://www.youtube.com/watch?v=QBUJ3cdofqc
     cooldown: 0,
     description: 'Advanced music bot',
-    async execute(message,args, cmd, client, Discord){
+    async execute(message, args, command, client, Discord){
 
 
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
@@ -23,7 +23,7 @@ module.exports = {
         const server_queue = queue.get(message.guild.id);
 
         //If the user has used the play command
-        if (cmd === 'play'){
+        if (command === 'play'){
             if (!args.length) return message.channel.send('You need to send the second argument!');
             let song = {};
 
@@ -76,8 +76,8 @@ module.exports = {
             }
         }
 
-        else if(cmd === 'skip') skip_song(message, server_queue);
-        else if(cmd === 'stop') stop_song(message, server_queue);
+        else if(command === 'skip') skip_song(message, server_queue);
+        else if(command === 'stop') stop_song(message, server_queue);
     }
     
 }
