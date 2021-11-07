@@ -8,7 +8,7 @@ const yt_sr = require('youtube-sr').default;
  * @param {Discord.Message} message
  * @param {String[]} args
  */
-module.exports.run = async (client, message, args) => {
+module.exports.execute = async (client, message, args) => {
 	if (!message.member.voice.channel) return message.reply('You need to be in a voice channel.');
 
 	let queue = client.queue.get(message.guild.id);
