@@ -16,7 +16,7 @@ module.exports = {
 
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
         const voice_channel = message.member.voice.channel;
-        if (!voice_channel) return message.channel.send('You need to be in a channel to execute this command!');
+        if (!voice_channel) return message.channel.send('You need to be in a vc fool');
         const permissions = voice_channel.permissionsFor(message.client.user);
         if (!permissions.has('CONNECT')) return message.channel.send('You dont have the correct permissins');
         if (!permissions.has('SPEAK')) return message.channel.send('You dont have the correct permissins');
@@ -26,7 +26,7 @@ module.exports = {
 
         //If the user has used the play command
         if (command === 'play'){
-            if (!args.length) return message.channel.send('You need to send the second argument!');
+            if (!args.length) return message.channel.send('You need to play something fool');
             let song = {};
 
             //If the first argument is a link. Set the song object to have two keys. Title and URl.
@@ -107,7 +107,7 @@ const video_player = async (guild, song) => {
     //     song_queue.songs.shift();
     //     video_player(guild, song_queue.songs[0]);
     // });
-    await song_queue.text_channel.send(`🎶 Now playing **${song.title}**`)
+    await song_queue.text_channel.send(`:hibiscus: Now playing **${song.title}**`)
 }
 
 const skip_song = (message, server_queue) => {
