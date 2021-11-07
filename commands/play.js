@@ -1,6 +1,6 @@
 const ytdl = require('ytdl-core');
 const ytSearch = require('yt-search');
-const { joinVoiceChannel, createAudioPlayer, createAudioResource } = require("@discordjs/voice");
+const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus } = require("@discordjs/voice");
 //getNextResource, audio something status
 
 const queue = new Map();
@@ -95,12 +95,13 @@ const video_player = async (guild, song) => {
 	const resource = createAudioResource(stream); 
 	player.play(resource);
     song_queue.connection.subscribe(player);
-    // player.on(AudioPlayerStatus.Idle, () => {
-    //     player.play(getNextResources());
-    // });
+    player.on(AudioPlayerStatus.Idle, () => {
+        song_queue.songs.shift();
+        video_player(guild, song_queue.songs[0]);
+    });
     // .on('finish', () => {
-    //     song_queue.songs.shift();
-    //     video_player(guild, song_queue.songs[0]);
+        // song_queue.songs.shift();
+        // video_player(guild, song_queue.songs[0]);
     // });
     await song_queue.text_channel.send(`:hibiscus: Now playing **${song.title}**`)
 }
