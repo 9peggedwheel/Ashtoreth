@@ -1,6 +1,6 @@
 const ytdl = require('ytdl-core');
 const ytSearch = require('yt-search');
-const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus } = require("@discordjs/voice");
+const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus  } = require("@discordjs/voice");
 //getNextResource, audio something status
 
 const queue = new Map();
@@ -85,7 +85,8 @@ const video_player = async (guild, song) => {
     const song_queue = queue.get(guild.id);
 
     if (!song) {
-        song_queue.voice_channel.leave();
+        song_queue.connection.destroy();
+        // song_queue.voice_channel.leave();
         queue.delete(guild.id);
         return;
     }
