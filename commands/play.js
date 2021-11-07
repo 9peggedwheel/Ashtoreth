@@ -92,14 +92,12 @@ const video_player = async (guild, song) => {
 
     const player = createAudioPlayer();
 	const resource = createAudioResource(stream); 
-    // resource.volume.setVolume(0.5);
 	player.play(resource);
-    song_queue.connection.subscribe(player);
-    // song_queue.connection.playFile(stream, { seek: 0, volume: 0.5 })
-    // .on('finish', () => {
-    //     song_queue.songs.shift();
-    //     video_player(guild, song_queue.songs[0]);
-    // });
+    song_queue.connection.subscribe(player)
+    .on('finish', () => {
+        song_queue.songs.shift();
+        video_player(guild, song_queue.songs[0]);
+    });
     await song_queue.text_channel.send(`:hibiscus: Now playing **${song.title}**`)
 }
 
