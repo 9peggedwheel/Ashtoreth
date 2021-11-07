@@ -101,8 +101,9 @@ const video_player = async (guild, song) => {
 
     const player = createAudioPlayer();
 	const resource = createAudioResource(stream); 
-    resource.volume.setVolume(0.5);
+    // resource.volume.setVolume(0.5);
 	player.play(resource);
+    connection.subscribe(player);
     // song_queue.connection.playFile(stream, { seek: 0, volume: 0.5 })
     // .on('finish', () => {
     //     song_queue.songs.shift();
