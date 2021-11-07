@@ -76,7 +76,8 @@ client.on('messageCreate', message => {
     } else if (command === 'unmute') {
         client.commands.get('unmute').execute(message, args);
     } else if (command === 'play') {
-        client.commands.get('play').execute(message, args, command, client);
+        const tmp = client.commands.get('play') || client.commands.find(a => a.aliases && a.aliases.includes('play'));
+        if (tmp) tmp.execute(message, args, command, client);
     } else if (command === 'leave') {
         client.commands.get('leave').execute(message, args);
     } else if (command === 'info') {
