@@ -112,11 +112,14 @@ const skip_song = (message, server_queue) => {
     if(!server_queue){
         return message.channel.send(`There are no songs in queue 😔`);
     }
-    server_queue.connection.dispatcher.end();
+    server_queue.songs.shift();
+    video_player(guild, server_queue.songs[0]);
 }
 
 const stop_song = (message, server_queue) => {
     if (!message.member.voice.channel) return message.channel.send('You need to be in a voice channel fool!');
     server_queue.songs = [];
-    server_queue.connection.dispatcher.end();
+    server_queue.connection.destroy();
+    queue.delete(guild.id);
+    return;
 }
