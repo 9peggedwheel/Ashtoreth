@@ -88,7 +88,7 @@ const video_player = async (guild, song) => {
         queue.delete(guild.id);
         return;
     }
-    const stream = ytdl(song.url, { type: 'opus', filter: 'audioonly' });
+    const stream = ytdl(song.url, { filter: 'audioonly' });
 
     const player = createAudioPlayer();
 	const resource = createAudioResource(stream); 
