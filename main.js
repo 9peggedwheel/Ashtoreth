@@ -38,7 +38,7 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
     console.log('Maid is online!');
-    client.user.setActivity("Master's commands", {type: 'LISTENING'});
+    client.user.setActivity("Master's orders", {type: 'LISTENING'});
     client.user.setPresence({
         status: 'idle'
     });

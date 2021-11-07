@@ -17,7 +17,7 @@ module.exports = {
             // .setDescription("This is an embed")
             .addFields(
                 {name: 'Server Info', value: 'Server is botted by Ashtoreth! For help or questions regarding the bot,\nplease visit the support server!'},
-                {name: 'Bot Support Server', value: 'https://discord.gg/Hg6TzH2vCg'},
+                {name: 'Ashtoreth Support Server', value: 'https://discord.gg/wGQ2EcX3Wy'},
             );
             // .setImage("https://media.discordapp.net/attachments/905711733019136052/906333248794288139/BJQMzfn.png")
             // .setFooter("Check Rules");
