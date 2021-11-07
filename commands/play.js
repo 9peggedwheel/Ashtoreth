@@ -16,10 +16,10 @@ module.exports = {
 
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
         const voice_channel = message.member.voice.channel;
-        if (!voice_channel) return message.channel.send('You need to be in a vc fool');
+        if (!voice_channel) return message.channel.send('You need to be in a voice channel fool');
         const permissions = voice_channel.permissionsFor(message.client.user);
-        if (!permissions.has('CONNECT')) return message.channel.send('You dont have the correct permissins');
-        if (!permissions.has('SPEAK')) return message.channel.send('You dont have the correct permissins');
+        if (!permissions.has('CONNECT')) return message.channel.send('You do not have the permission');
+        if (!permissions.has('SPEAK')) return message.channel.send('You do not have the permission');
 
         //This is our server queue. We are getting this server queue from the global queue.
         const server_queue = queue.get(message.guild.id);
@@ -101,6 +101,7 @@ const video_player = async (guild, song) => {
 
     const player = createAudioPlayer();
 	const resource = createAudioResource(stream); 
+    resource.volume.setVolume(0.5);
 	player.play(resource);
     // song_queue.connection.playFile(stream, { seek: 0, volume: 0.5 })
     // .on('finish', () => {
@@ -111,7 +112,7 @@ const video_player = async (guild, song) => {
 }
 
 const skip_song = (message, server_queue) => {
-    if (!message.member.voice.channel) return message.channel.send('You need to be in a channel to execute this command!');
+    if (!message.member.voice.channel) return message.channel.send('You need to be in a voice channel fool!');
     if(!server_queue){
         return message.channel.send(`There are no songs in queue 😔`);
     }
@@ -119,7 +120,7 @@ const skip_song = (message, server_queue) => {
 }
 
 const stop_song = (message, server_queue) => {
-    if (!message.member.voice.channel) return message.channel.send('You need to be in a channel to execute this command!');
+    if (!message.member.voice.channel) return message.channel.send('You need to be in a voice channel fool!');
     server_queue.songs = [];
     server_queue.connection.dispatcher.end();
 }
