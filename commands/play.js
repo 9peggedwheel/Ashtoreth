@@ -113,7 +113,7 @@ const skip_song = (message, server_queue) => {
         return message.channel.send(`There are no songs in queue 😔`);
     }
     server_queue.songs.shift();
-    video_player(guild, server_queue.songs[0]);
+    video_player(message.guild, server_queue.songs[0]);
 }
 
 const stop_song = (message, server_queue) => {
