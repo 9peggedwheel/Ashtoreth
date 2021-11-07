@@ -99,8 +99,8 @@ const video_player = async (guild, song) => {
     }
     const stream = ytdl(song.url, { filter: 'audioonly' });
 
-    const player = Voice.createAudioPlayer();
-	const resource = Voice.createAudioResource(stream);
+    const player = createAudioPlayer();
+	const resource = createAudioResource(stream); 
 	player.play(resource);
     // song_queue.connection.playFile(stream, { seek: 0, volume: 0.5 })
     // .on('finish', () => {
