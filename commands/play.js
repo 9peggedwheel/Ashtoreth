@@ -7,7 +7,7 @@ const queue = new Map();
 
 module.exports = {
     name: 'play',
-    aliases: ['skip', 'stop'], 
+    aliases: ['skip', 'stop', 'queue'], 
     cooldown: 0,
     description: 'Advanced music bot',
     async execute(message, args, command, client, Discord){
@@ -77,6 +77,7 @@ module.exports = {
 
         else if(command === 'skip') skip_song(message, server_queue);
         else if(command === 'stop') stop_song(message, server_queue);
+        else if(command === 'queue') show_queue(message, server_queue);
     }
     
 }
@@ -122,4 +123,18 @@ const stop_song = (message, server_queue) => {
     server_queue.connection.destroy();
     queue.delete(message.guild.id);
     return;
+}
+
+const show_queue = (message, server_queue) => {
+    if (!message.member.voice.channel) return message.channel.send('You need to be in a voice channel fool!');
+    if (!server_queue.connection) return message.channel.send('You need to play something first fool!');
+
+    let nowPlaying = server_queue.songs[0];
+    let qMsg = `Now Playing: ${nowPlaying.title}\n------------------------\n`;
+
+    for (var i = 1; i < server_queue.songs.length; i++) {
+        qMsg += `${i}. ${server_queue.songs[i].title}\n`
+    }
+
+    message.channel.send('```' + qMsg + 'Requested by: ' + message.author.username + '```');
 }
