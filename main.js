@@ -50,7 +50,7 @@ client.on('guildMemberAdd', guildMember =>{
 
     guildMember.roles.add(welcomeRole);
     client.channels.cache.get('905960857601736736').send(`Welcome <@${guildMember.user.id}> to the server!`)
-    client.channels.cache.get('905960857601736736').send('https://imgur.com/BJQMzfn.jpg')
+    client.channels.cache.get('905960857601736736').send('https://media.discordapp.net/attachments/906406839736999957/906417653344784384/BJQMzfn.png')
 });
 
 client.on('messageCreate', message => {
