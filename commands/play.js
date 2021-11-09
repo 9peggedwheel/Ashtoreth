@@ -103,9 +103,9 @@ const video_player = async (guild, song) => {
 	player.play(resource);
     song_queue.connection.subscribe(player);
     player.on(AudioPlayerStatus.Idle, () => {
-        if (server_queue.loopone) {        
+        if (song_queue.loopone) {        
             video_player(guild, song_queue.songs[0]);
-        } else if (server_queue.loopall) {
+        } else if (song_queue.loopall) {
             song_queue.songs.push(song_queue.songs[0]);
             song_queue.songs.shift();
             video_player(guild, song_queue.songs[0]);
