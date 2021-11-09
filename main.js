@@ -75,7 +75,7 @@ client.on('messageCreate', message => {
         client.commands.get('mute').execute(message, args);
     } else if (command === 'unmute') {
         client.commands.get('unmute').execute(message, args);
-    } else if (command === 'play' || command === 'skip' || command === 'stop' || command === 'queue') {
+    } else if (command === 'play' || command === 'skip' || command === 'stop' || command === 'queue' || command === 'loop' || command === 'loopone' || command === 'loopstop') {
         const tmp = client.commands.get('play') || client.commands.find(a => a.aliases && a.aliases.includes('play'));
         if (tmp) tmp.execute(message, args, command, client);
     } else if (command === 'leave') {

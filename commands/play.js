@@ -7,7 +7,7 @@ const queue = new Map();
 
 module.exports = {
     name: 'play',
-    aliases: ['skip', 'stop', 'queue'], 
+    aliases: ['skip', 'stop', 'queue', 'loop', 'loopone', 'loopstop'], 
     cooldown: 0,
     description: 'Advanced music bot',
     async execute(message, args, command, client, Discord){
@@ -49,7 +49,9 @@ module.exports = {
                     voice_channel: voice_channel,
                     text_channel: message.channel,
                     connection: null,
-                    songs: []
+                    songs: [],
+                    loopone: false,
+                    loopall: false
                 }
                 
                 queue.set(message.guild.id, queue_constructor);
@@ -78,6 +80,9 @@ module.exports = {
         else if(command === 'skip') skip_song(message, server_queue);
         else if(command === 'stop') stop_song(message, server_queue);
         else if(command === 'queue') show_queue(message, server_queue);
+        else if(command === 'loop') loop(message, server_queue);
+        else if(command === 'loopone') loopone(message, server_queue);
+        else if(command === 'loopstop') loop_stop(message, server_queue);
     }
     
 }
@@ -98,8 +103,16 @@ const video_player = async (guild, song) => {
 	player.play(resource);
     song_queue.connection.subscribe(player);
     player.on(AudioPlayerStatus.Idle, () => {
-        song_queue.songs.shift();
-        video_player(guild, song_queue.songs[0]);
+        if (server_queue.loopone) {        
+            video_player(guild, song_queue.songs[0]);
+        } else if (server_queue.loopall) {
+            song_queue.songs.push(song_queue.songs[0]);
+            song_queue.songs.shift();
+            video_player(guild, song_queue.songs[0]);
+        } else {
+            song_queue.songs.shift();
+            video_player(guild, song_queue.songs[0]);
+        }
     });
     // .on('finish', () => {
         // song_queue.songs.shift();
@@ -137,4 +150,31 @@ const show_queue = (message, server_queue) => {
     }
 
     message.channel.send('```' + qMsg + 'Requested by: ' + message.author.username + '```');
+}
+
+const loop = (message, server_queue) => {
+    if (!message.member.voice.channel) return message.channel.send('You need to be in a voice channel fool!');
+    if (!server_queue.connection) return message.channel.send('You need to play something first fool!');
+
+    server_queue.loopall = true;
+    server_queue.loopone = false;
+    message.channel.send("Loop has been turned on for the queue!");
+}
+
+const loopone = (message, server_queue) => {
+    if (!message.member.voice.channel) return message.channel.send('You need to be in a voice channel fool!');
+    if (!server_queue.connection) return message.channel.send('You need to play something first fool!');
+
+    server_queue.loopall = false;
+    server_queue.loopone = true;
+    message.channel.send("The first song is now being looped!");
+}
+
+const loop_stop = (message, server_queue) => {
+    if (!message.member.voice.channel) return message.channel.send('You need to be in a voice channel fool!');
+    if (!server_queue.connection) return message.channel.send('You need to play something first fool!');
+
+    server_queue.loopall = false;
+    server_queue.loopone = false;
+    message.channel.send("Loops have been disabled!");
 }
