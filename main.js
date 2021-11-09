@@ -1,5 +1,5 @@
 const { Client, Intents, Collection } = require('discord.js');
-//const config = require('./config.json');
+const config = require('./config.json');
 
 const client = new Client({
     intents: [
@@ -9,6 +9,8 @@ const client = new Client({
         Intents.FLAGS.GUILD_VOICE_STATES
     ]
 });
+
+const mongoose = require('mongoose');
 
 const prefix = '{';
 
@@ -84,5 +86,19 @@ client.on('messageCreate', message => {
         client.commands.get('info').execute(message, args);
     }
 });
+
+
+mongoose
+    .connect(config.MONGODB_SRV, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false
+    })
+    .then(() =>{
+        console.log('Connected to the database');
+    })
+    .catch((err) =>{
+        console.log(err);
+    });
 
 client.login(process.env.DJS_TOKEN);

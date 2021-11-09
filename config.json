@@ -1,3 +1,4 @@
 {
-    "token": "OTA1NjE2MjU5NjQ1ODQ1NjA0.YYMq3Q.64N914PB1s8GlB3de0AasAZBSz8"
+    "token": "OTA1NjE2MjU5NjQ1ODQ1NjA0.YYMq3Q.64N914PB1s8GlB3de0AasAZBSz8",
+    "MONGODB_SRV": "mongodb+srv://9peggedwheel:tempestioas1!@ashtoreth.mj5qp.mongodb.net/Ashtoreth?retryWrites=true&w=majority"
 }
