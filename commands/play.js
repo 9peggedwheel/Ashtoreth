@@ -140,7 +140,9 @@ const stop_song = (message, server_queue) => {
 
 const show_queue = (message, server_queue) => {
     if (!message.member.voice.channel) return message.channel.send('You need to be in a voice channel fool!');
-    if (!server_queue.connection) return message.channel.send('You need to play something first fool!');
+    if(!server_queue){
+        return message.channel.send(`There are no songs in queue 😔`);
+    }
 
     let nowPlaying = server_queue.songs[0];
     let qMsg = `Now Playing: ${nowPlaying.title}\n------------------------\n`;
@@ -154,7 +156,9 @@ const show_queue = (message, server_queue) => {
 
 const loop = (message, server_queue) => {
     if (!message.member.voice.channel) return message.channel.send('You need to be in a voice channel fool!');
-    if (!server_queue.connection) return message.channel.send('You need to play something first fool!');
+    if(!server_queue){
+        return message.channel.send('You need to play something first fool!');
+    }
 
     server_queue.loopall = true;
     server_queue.loopone = false;
@@ -163,7 +167,9 @@ const loop = (message, server_queue) => {
 
 const loopone = (message, server_queue) => {
     if (!message.member.voice.channel) return message.channel.send('You need to be in a voice channel fool!');
-    if (!server_queue.connection) return message.channel.send('You need to play something first fool!');
+    if(!server_queue){
+        return message.channel.send('You need to play something first fool!');
+    }
 
     server_queue.loopall = false;
     server_queue.loopone = true;
@@ -172,7 +178,9 @@ const loopone = (message, server_queue) => {
 
 const loop_stop = (message, server_queue) => {
     if (!message.member.voice.channel) return message.channel.send('You need to be in a voice channel fool!');
-    if (!server_queue.connection) return message.channel.send('You need to play something first fool!');
+    if(!server_queue){
+        return message.channel.send('You need to play something first fool!');
+    }
 
     server_queue.loopall = false;
     server_queue.loopone = false;
