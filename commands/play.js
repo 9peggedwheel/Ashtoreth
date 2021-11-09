@@ -132,7 +132,7 @@ const skip_song = (message, server_queue) => {
 
 const stop_song = (message, server_queue) => {
     if (!message.member.voice.channel) return message.channel.send('You need to be in a voice channel fool!');
-    server_queue.songs = [];
+    // server_queue.songs = [];
     server_queue.connection.destroy();
     queue.delete(message.guild.id);
     return;
