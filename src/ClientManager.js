@@ -13,7 +13,7 @@ module.exports = class ClientManager extends Client {
         this.events = new EventHandler(this);
         this.events.init();
 
-        require('./util/loadCommands')(this);
+        require('./utils/loadCommands')(this);
 
         this.login(process.env.DJS_TOKEN);
     }
