@@ -164,7 +164,7 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.config = {
     name: 'play',
-    aliases = ['skip', 'stop', 'queue', 'loop', 'loopone', 'loopstop']
+    aliases: ['skip', 'stop', 'queue', 'loop', 'loopone', 'loopstop']
 }
 
 const video_player = async (guild, song) => {
