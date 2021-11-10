@@ -11,6 +11,15 @@ const client = new ClientManager({
 
 client.setup();
 
+
+client.on('guildMemberAdd', guildMember =>{
+    let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'Member');
+
+    guildMember.roles.add(welcomeRole);
+    client.channels.cache.get('905960857601736736').send(`Welcome <@${guildMember.user.id}> to the server!`)
+    client.channels.cache.get('905960857601736736').send('https://media.discordapp.net/attachments/906406839736999957/906417653344784384/BJQMzfn.png')
+});
+
 mongoose
     .connect(config.MONGODB_SRV, {
     })
