@@ -90,7 +90,8 @@ const queue = new Map();
 const Discord = require("discord.js")
 
 module.exports.run = async (client, message, args) => {
-    const command = args.shift().toLowerCase();
+    const tmp2 = message.content.slice(prefix.length).split(/ +/);
+    const command = tmp2.shift().toLowerCase();
     const voice_channel = message.member.voice.channel;
     if (!voice_channel) return message.channel.send('You need to be in a voice channel fool');
     const permissions = voice_channel.permissionsFor(message.client.user);

@@ -12,7 +12,6 @@ function loadCommands(client) {
 				cmds = cmds.filter(z => z.split('.')[1] === 'js');
 				cmds.forEach((cmd) => {
 					const pull = require(`../commands/${cmdfolder}/${cmd}`);
-                    console.log(pull);
 					client.commands.set(pull.config.name, pull);
 					pull.config.aliases.forEach((alias) => {
 						client.aliases.set(alias, pull.config.name);
