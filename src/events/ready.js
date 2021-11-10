@@ -1,4 +1,4 @@
-const memberCounter = require('../counters/member-counter');
+const memberCounter = require('../../counters/member-counter');
 
 module.exports = (client) => {
     console.log('Maid is online!');
