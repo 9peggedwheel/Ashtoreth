@@ -15,13 +15,7 @@ const mongoose = require('mongoose');
 const ClientManager = require('./src/ClientManager');
 const client = new ClientManager({
   partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
-  ws: {intents: [
-    Intents.FLAGS.GUILDS, 
-    Intents.FLAGS.GUILD_MESSAGES, 
-    Intents.FLAGS.GUILD_MEMBERS, 
-    Intents.FLAGS.GUILD_VOICE_STATES
-    ]
-  },
+  intents: 32767,
   disableMentions: 'everyone',
 });
 
