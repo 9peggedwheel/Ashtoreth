@@ -30,12 +30,13 @@ module.exports.run = async (client, message, args) => {
         const character = characterdata.FIVESTARCHAR[randomIndex];
         message.channel.send(`You just summoned ${character}!`);
         profile.update({$push: {Inventory: character}});
-    }
-    if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3) {
+    } else if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3) {
         const randomIndex = Math.floor(Math.random*((characterdata.FOURSTARCHAR).length) + 1);
         const character = characterdata.FOURSTARCHAR[randomIndex];
         message.channel.send(`You just summoned ${character}!`);
         profile.update({$push: {Inventory: character}});
+    } else {
+        message.channel.send(`feels bad`);
     }
 
 }
