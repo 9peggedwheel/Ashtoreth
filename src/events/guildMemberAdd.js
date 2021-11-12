@@ -5,6 +5,7 @@ module.exports = async (client, member) => {
     const data = await welcomeModel.findOne({
         GuildID: member.guild.id
     });
+    if (!data) return;
     let channel = client.channels.cache.get(data.ChannelID);
     let welcomeRole = member.guild.roles.cache.get(data.RoleID);
 
