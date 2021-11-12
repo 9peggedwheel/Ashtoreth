@@ -17,7 +17,7 @@ client.on('guildMemberAdd', guildMember =>{
 
     guildMember.roles.add(welcomeRole);
     client.channels.cache.get('905960857601736736').send(`Welcome <@${guildMember.user.id}> to the server!`)
-    client.channels.cache.get('905960857601736736').send('https://media.discordapp.net/attachments/906406839736999957/906417653344784384/BJQMzfn.png')
+    client.channels.cache.get('905960857601736736').send('https://media.discordapp.net/attachments/908229025099567146/908571572607008788/a.jpg')
 });
 
 mongoose
