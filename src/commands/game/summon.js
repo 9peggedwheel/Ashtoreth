@@ -49,7 +49,7 @@ module.exports.run = async (client, message, args) => {
         },
         {
             $addToSet: {
-                Inventory: `${character}`,
+                Inventory: character,
             }
         }
     );
