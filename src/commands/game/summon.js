@@ -5,7 +5,7 @@ const Discord = require("discord.js")
 module.exports.run = async (client, message, args) => {
     const member = message.author.id;
 
-    const profile = await profileSchema.findOne({
+    const profile = await profileModel.findOne({
         UserID: member
     });
 
@@ -38,7 +38,7 @@ module.exports.run = async (client, message, args) => {
     //     message.channel.send(`${randomNumber}`);
     //     message.channel.send(`feels bad`);
     // }
-    profileSchema.findOneAndUpdate(
+    const profile2 = await profileModel.findOneAndUpdate(
         {
             UserID: member
         },
