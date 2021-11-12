@@ -1,4 +1,4 @@
-const channelModel = require('../../models/modlogModel');
+const modlogModel = require('../../models/modlogModel');
 
 module.exports.run = async (client, message, args) => {
     if (message.member.permissions.has("ADMINISTRATOR")) {
