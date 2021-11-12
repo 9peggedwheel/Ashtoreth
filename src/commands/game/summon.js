@@ -38,7 +38,7 @@ module.exports.run = async (client, message, args) => {
     //     message.channel.send(`${randomNumber}`);
     //     message.channel.send(`feels bad`);
     // }
-    profileSchema.Update(
+    profileSchema.findOneAndUpdate(
         {
             UserID: member
         },
