@@ -7,7 +7,7 @@ module.exports = async (client, message) => {
     const data = await modlogModel.findOne({
         GuildID: message.guild.id
     });
-
+    if (!data) return;
     let channel = client.channels.cache.get(data.ChannelID);
     let sender = message.author.id;
 

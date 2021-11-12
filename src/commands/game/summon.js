@@ -38,7 +38,7 @@ module.exports.run = async (client, message, args) => {
     //     message.channel.send(`${randomNumber}`);
     //     message.channel.send(`feels bad`);
     // }
-    const profile2 = await profileSchema.findOneAndUpdate(
+    profileSchema.Update(
         {
             UserID: member
         },
