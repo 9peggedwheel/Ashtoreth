@@ -21,26 +21,30 @@ module.exports.run = async (client, message, args) => {
         return;
     }
     
-    // const randomNumber = Math.floor(Math.random()*100) + 1;
-    // if (randomNumber == 25) {
+    const randomNumber = Math.floor(Math.random()*100) + 1;
+    if (randomNumber == 25) {
         const randomIndex = Math.floor(Math.random()*(characterdata.FIVESTARCHARS));
         message.channel.send(`${randomIndex}`);
         const character = characterdata.FIVESTARCHAR[randomIndex];
-        message.channel.send(`You just summoned ${character}!`);
-        // profile.update({$push: {Inventory: character}});
-    // } else if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3) {
-    //     const randomIndex = Math.floor(Math.random()*((characterdata.FOURSTARCHAR).length));
-    //     const character = characterdata.FOURSTARCHAR[randomIndex];
-    //     message.channel.send(`You just summoned ${character}!`);
-    //     profile.update({$push: {Inventory: character}});
-    // } else {
-    //     message.channel.send(`${randomNumber}`);
-    //     message.channel.send(`feels bad`);
-    // }
-    const profile2 = await profileModel.findOneAndUpdate(
-        { UserID: member },
-        { $inc: { AstralCoins: -3}, $addToSet: { Inventory: `${character }` }}, {upsert: true}
-    );
+        message.channel.send(`__**You just summoned a five star!**__`);
+        message.channel.send(`${character}!`);
+        const profile2 = await profileModel.findOneAndUpdate(
+            { UserID: member },
+            { $inc: { AstralCoins: -3}, $addToSet: { Inventory: `${character }` }}, {upsert: true}
+        );
+    } else if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3) {
+        const randomIndex = Math.floor(Math.random()*((characterdata.FOURSTARCHAR).length));
+        const character = characterdata.FOURSTARCHAR[randomIndex];
+        message.channel.send(`**You just summoned a four star!**`);
+        message.channel.send(`${character}!`);
+        const profile2 = await profileModel.findOneAndUpdate(
+            { UserID: member },
+            { $inc: { AstralCoins: -3}, $addToSet: { Inventory: `${character }` }}, {upsert: true}
+        );
+    } else {
+        message.channel.send(`feels bad`);
+    }
+
 }
 
 module.exports.config = {
