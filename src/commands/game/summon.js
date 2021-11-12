@@ -31,7 +31,7 @@ module.exports.run = async (client, message, args) => {
             { UserID: member },
             { $inc: { AstralCoins: -3}, $addToSet: { Inventory: `${character }` }}, {upsert: true}
         );
-    } else if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3) {
+    } else if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3 || randomNumber == 4 || randomNumber == 5) {
         const randomIndex = Math.floor(Math.random()*((characterdata.FOURSTARCHAR).length));
         const character = characterdata.FOURSTARCHAR[randomIndex];
         message.channel.send(`**You just summoned a four star!**`);

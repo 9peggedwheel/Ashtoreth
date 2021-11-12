@@ -4,12 +4,13 @@ module.exports.run = async (client, message, args) => {
     const card = await cardModel.findOne({
         CardName: args[0]
     });
-    let cardImage = card.CardImage;
+
 
     if (!card) {
-        message.channel.send(`There is no card by that name!`);
+        message.channel.send(`There is no character by that name!`);
         return;
     } else {
+        let cardImage = card.CardImage;
         message.channel.send(`${cardImage}`);
     }
 

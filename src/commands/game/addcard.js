@@ -12,9 +12,9 @@ module.exports.run = async (client, message, args) => {
                 CardImage: args[1]
             });
             card.save();
-            message.channel.send(`A new card has been added!`);
+            message.channel.send(`A new character has been added!`);
         } else {
-            message.channel.send(`There is already an existing card!`);
+            message.channel.send(`There is already an existing character!`);
         }
     } else {
         return;
