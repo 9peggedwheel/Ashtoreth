@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
     }
     let AstralCoins = profile.AstralCoins;
     let EssencePoints = profile.EssencePoints;
-    let Inventory = profile.Inventory;
+    let Inventory = profile.Characters;
     let invString = "";
     for (let i = 0; i < Inventory.length - 1; i++) {
         invString += Inventory[i] + ", ";

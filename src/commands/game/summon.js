@@ -29,7 +29,7 @@ module.exports.run = async (client, message, args) => {
         message.channel.send(`${character}!`);
         const profile2 = await profileModel.findOneAndUpdate(
             { UserID: member },
-            { $inc: { AstralCoins: -3}, $addToSet: { Inventory: `${character }` }}, {upsert: true}
+            { $inc: { AstralCoins: -3}, $addToSet: { Characters: `${character }` }}, {upsert: true}
         );
     } else if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3 || randomNumber == 4 || randomNumber == 5) {
         const randomIndex = Math.floor(Math.random()*((characterdata.FOURSTARCHAR).length));
@@ -38,7 +38,7 @@ module.exports.run = async (client, message, args) => {
         message.channel.send(`${character}!`);
         const profile2 = await profileModel.findOneAndUpdate(
             { UserID: member },
-            { $inc: { AstralCoins: -3}, $addToSet: { Inventory: `${character }` }}, {upsert: true}
+            { $inc: { AstralCoins: -3}, $addToSet: { Characters: `${character }` }}, {upsert: true}
         );
     } else {
         message.channel.send(`feels bad`);

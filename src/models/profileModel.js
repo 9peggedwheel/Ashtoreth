@@ -4,6 +4,7 @@ const profileSchema = new mongoose.Schema({
     UserID: String,
     AstralCoins: Number,
     EssencePoints: Number,
+    Characters: [String],
     Inventory: [String]
 });
 

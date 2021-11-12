@@ -10,8 +10,9 @@ module.exports.run = async (client, message, args) => {
     if (!profile) {
         const profile = new profileModel({
             UserID: member,
-            AstralCoins: 3,
+            AstralCoins: 30,
             EssencePoints: 0,
+            Characters: [],
             Inventory: []
         });
         profile.save();
