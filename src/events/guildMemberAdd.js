@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const welcomeModel = require('../models/welcomeModel');
 
 module.exports = async (client, member) => {
-    console.log(member);
     const data = await welcomeModel.findOne({
         GuildID: member.guild.id
     });
