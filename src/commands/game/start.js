@@ -11,7 +11,8 @@ module.exports.run = async (client, message, args) => {
         const profile = new profileSchema({
             UserID: member,
             AstralCoins: 3,
-            EssencePoints: 0
+            EssencePoints: 0,
+            Inventory: []
         });
         profile.save();
         message.channel.send(`A new profile has been created!`);

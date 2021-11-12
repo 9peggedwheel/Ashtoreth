@@ -15,9 +15,16 @@ module.exports.run = async (client, message, args) => {
     }
     let AstralCoins = profile.AstralCoins;
     let EssencePoints = profile.EssencePoints;
+    let Inventory = profile.Inventory;
+    let invString = "";
+    for (let i = 0; i < Inventory.length - 1; i++) {
+        invString += Inventory[i] + ", ";
+    }
+    invString += Inventory[Inventory.length - 1];
     const newEmbed = new MessageEmbed()
         .setColor('#EDF1FF')
         .setTitle(`${message.author.username}'s profile`)
+        .setDescription('' + invString)
         .addFields(
             {name: 'Astral Coins', value: "" + AstralCoins},
             {name: 'Essence Points', value: "" + EssencePoints},
@@ -31,5 +38,5 @@ module.exports.run = async (client, message, args) => {
 
 module.exports.config = {
     name: 'inv',
-    aliases: ['inventory', 'profile']
+    aliases: ['inventory']
 }
