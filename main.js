@@ -30,12 +30,12 @@ mongoose
         console.log(err);
     });
 
-mongoCurrency
-    .connect(config.MONGODB_SRV, {
-    })
-    .then(() => {
-        console.log('Connected to currency database');
-    })
-    .catch((err) =>{
-        console.log(err);
-    });
+// mongoCurrency
+//     .connect(config.MONGODB_SRV, {
+//     })
+//     .then(() => {
+//         console.log('Connected to currency database');
+//     })
+//     .catch((err) =>{
+//         console.log(err);
+//     });
