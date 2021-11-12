@@ -24,19 +24,19 @@ module.exports.run = async (client, message, args) => {
         profile.update({$inc: {AstralCoins: -3}});
     }
     
-    const randomNumber = Math.floor(Math.random*100) + 1;
+    const randomNumber = Math.floor(Math.random()*100) + 1;
     if (randomNumber == 25) {
-        const randomIndex = Math.floor(Math.random*(characterdata.FIVESTARCHARS) + 1);
+        const randomIndex = Math.floor(Math.random()*(characterdata.FIVESTARCHARS) + 1);
         const character = characterdata.FIVESTARCHAR[randomIndex];
         message.channel.send(`You just summoned ${character}!`);
         profile.update({$push: {Inventory: character}});
     } else if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3) {
-        const randomIndex = Math.floor(Math.random*((characterdata.FOURSTARCHAR).length) + 1);
+        const randomIndex = Math.floor(Math.random()*((characterdata.FOURSTARCHAR).length) + 1);
         const character = characterdata.FOURSTARCHAR[randomIndex];
         message.channel.send(`You just summoned ${character}!`);
         profile.update({$push: {Inventory: character}});
     } else {
-        message.channel.send("" + randomNumber);
+        message.channel.send(`${randomNumber}`);
         message.channel.send(`feels bad`);
     }
 
