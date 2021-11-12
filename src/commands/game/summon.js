@@ -20,19 +20,17 @@ module.exports.run = async (client, message, args) => {
     if (AstralCoins < 3) {
         message.channel.send(`You don't have enough Astral Coins to summon`);
         return;
-    } else {
-        profile.update({$inc: {AstralCoins: -3}});
     }
     
     // const randomNumber = Math.floor(Math.random()*100) + 1;
     // if (randomNumber == 25) {
-        const randomIndex = Math.floor(Math.random()*(characterdata.FIVESTARCHARS) + 1);
+        const randomIndex = Math.floor(Math.random()*(characterdata.FIVESTARCHARS));
         message.channel.send(`${randomIndex}`);
         const character = characterdata.FIVESTARCHAR[randomIndex];
         message.channel.send(`You just summoned ${character}!`);
-        profile.update({$push: {Inventory: character}});
+        // profile.update({$push: {Inventory: character}});
     // } else if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3) {
-    //     const randomIndex = Math.floor(Math.random()*((characterdata.FOURSTARCHAR).length) + 1);
+    //     const randomIndex = Math.floor(Math.random()*((characterdata.FOURSTARCHAR).length));
     //     const character = characterdata.FOURSTARCHAR[randomIndex];
     //     message.channel.send(`You just summoned ${character}!`);
     //     profile.update({$push: {Inventory: character}});
@@ -40,7 +38,21 @@ module.exports.run = async (client, message, args) => {
     //     message.channel.send(`${randomNumber}`);
     //     message.channel.send(`feels bad`);
     // }
-
+    const profile2 = await profileSchema.findOneAndUpdate(
+        {
+            UserID: member
+        },
+        {
+            $inc: {
+                AstralCoins: -3,
+            }
+        },
+        {
+            $push: {
+                Inventory: character,
+            }
+        }
+    );
 }
 
 module.exports.config = {
