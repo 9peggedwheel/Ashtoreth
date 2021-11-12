@@ -8,13 +8,13 @@ module.exports.run = async (client, message, args) => {
     const member = message.mentions.users.first();
     if (member) {
         const data = await muteModel.findOne({
-            GuildID: member.guild.id
+            GuildID: message.guild.id
         });
         if (!data) return;
         let muteRole = member.guild.roles.cache.get(data.RoleID);
 
         const data2 = await memberModel.findOne({
-            GuildID: member.guild.id
+            GuildID: message.guild.id
         });
         if (!data2) return;
         let memberRole = member.guild.roles.cache.get(data2.RoleID);
