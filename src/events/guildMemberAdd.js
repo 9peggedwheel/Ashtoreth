@@ -3,7 +3,7 @@ const welcomeModel = require('../models/welcomeModel');
 
 module.exports = async (member) => {
     const data = await welcomeModel.findOne({
-        GuildID: member.guild
+        GuildID: member.guild.id
     });
     console.log(member);
     let channel = member.guild.channels.cache.get(data.ChannelID);
