@@ -19,8 +19,8 @@ module.exports.run = async (client, message, args) => {
         .setColor('#EDF1FF')
         .setTitle(`<@${member.id}>'s profile`)
         .addFields(
-            {name: 'Astral Coins', value: AstralCoins},
-            {name: 'Essence Points', value: EssencePoints},
+            {name: 'Astral Coins', value: "" + AstralCoins},
+            {name: 'Essence Points', value: "" + EssencePoints},
         );
         // .setDescription("Join the support server (Link in ABOUT ME)")
         // .setURL('https://google.com')
