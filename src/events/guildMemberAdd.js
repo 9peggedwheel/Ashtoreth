@@ -6,7 +6,7 @@ module.exports = async (member) => {
         GuildID: member.guild
     });
 
-    let channel = guild.channels.cache.get(data.ChannelID);
+    let channel = member.guild.channels.cache.get(data.ChannelID);
     let welcomeRole = member.guild.roles.cache.find(data.RoleID);
 
     member.roles.add(welcomeRole);
