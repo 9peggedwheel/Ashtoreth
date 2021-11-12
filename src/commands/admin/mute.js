@@ -1,6 +1,8 @@
 const ms = require('ms');
 
 const Discord = require("discord.js")
+const muteModel = require('../models/muteModel');
+const memberModel = require('../models/memberModel');
 
 module.exports.run = async (client, message, args) => {
     const member = message.mentions.users.first();
