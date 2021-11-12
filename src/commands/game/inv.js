@@ -1,11 +1,11 @@
-const profileSchema = require('../../models/profileSchema');
+const profileModel = require('../../models/profileModel');
 const { MessageEmbed } = require('discord.js');
 const Discord = require("discord.js")
 
 module.exports.run = async (client, message, args) => {
     const member = message.author.id;
 
-    const profile = await profileSchema.findOne({
+    const profile = await profileModel.findOne({
         UserID: member
     });
 

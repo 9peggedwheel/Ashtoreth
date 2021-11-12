@@ -1,14 +1,14 @@
-const profileSchema = require('../../models/profileSchema');
+const profileModel = require('../../models/profileModel');
 
 module.exports.run = async (client, message, args) => {
     const member = message.author.id;
 
-    const profile = await profileSchema.findOne({
+    const profile = await profileModel.findOne({
         UserID: member
     });
 
     if (!profile) {
-        const profile = new profileSchema({
+        const profile = new profileModel({
             UserID: member,
             AstralCoins: 3,
             EssencePoints: 0,

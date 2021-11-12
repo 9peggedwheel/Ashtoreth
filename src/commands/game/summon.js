@@ -1,4 +1,4 @@
-const profileSchema = require('../../models/profileSchema');
+const profileModel = require('../../models/profileModel');
 const characterdata = require('../../../characterdata.json');
 const Discord = require("discord.js")
 
