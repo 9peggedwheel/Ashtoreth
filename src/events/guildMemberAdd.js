@@ -2,12 +2,12 @@ const Discord = require('discord.js');
 const welcomeModel = require('../models/welcomeModel');
 
 module.exports = async (client, member) => {
+    console.log(member);
     const data = await welcomeModel.findOne({
         GuildID: member.guild.id
     });
-    console.log(member);
     let channel = client.channels.cache.get(data.ChannelID);
-    let welcomeRole = member.guild.roles.cache.find(data.RoleID);
+    let welcomeRole = member.guild.roles.cache.get(data.RoleID);
 
     member.roles.add(welcomeRole);
     client.channels.cache.get(channel.id).send(`Hello <@${member.user.id}>, welcome to the server!`)
