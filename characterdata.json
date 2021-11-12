@@ -1,10 +1,12 @@
 {
-    "FIVESTARCHARS": 2,
+    "FIVESTARCHARS": 3,
     "FIVESTARCHAR": [
         "Altoria Pendragon",
-        "Mai Sakurajima"
+        "Mai Sakurajima",
+        "Shouko Komi"
     ],
     "FOURSTARCHAR": [
-        "Ichigo"
+        "Ichigo",
+        "Madara Uchiha"
     ]
 }
