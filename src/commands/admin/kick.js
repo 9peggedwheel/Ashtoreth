@@ -8,8 +8,10 @@ module.exports.run = async (client, message, args) => {
             if (member.id === '905616259645845604') return message.reply("Nice try buddy");
             try {
                 memberTarget.kick();
-            } catch (error) {
-                return message.channel.send("Calm down buddy");
+            } catch (e) {
+                console.log(e);
+                message.channel.send("Calm down buddy");
+                return;
             }
             message.channel.send(`<@${memberTarget.user.id}> has been kicked`);
 

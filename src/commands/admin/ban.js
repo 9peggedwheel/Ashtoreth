@@ -9,7 +9,9 @@ module.exports.run = async (client, message, args) => {
             try {
                 memberTarget.ban();
             } catch (error) {
-                return message.channel.send("Calm down buddy");
+                console.log(e);
+                message.channel.send("Calm down buddy");
+                return;
             }
             message.channel.send(`<@${memberTarget.user.id}> has been banned`);
         } else {
