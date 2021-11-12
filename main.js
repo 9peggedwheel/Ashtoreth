@@ -2,7 +2,6 @@ const { Client, Intents, Collection } = require('discord.js');
 const config = require('./config.json');
 const mongoose = require('mongoose');
 
-const welcomeModel = require('./src/models/welcomeModel');
 const ClientManager = require('./src/ClientManager');
 const client = new ClientManager({
   partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
@@ -13,19 +12,13 @@ const client = new ClientManager({
 client.setup();
 
 
+// client.on('guildMemberAdd', guildMember =>{
+//     let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'Member');
 
-client.on('guildMemberAdd', guildMember =>{
-    const data = await welcomeModel.findOne({
-        GuildID: guildMember.guild.id
-    });
-
-    let channel = client.channels.cache.get(data.ChannelID);
-    let welcomeRole = guildMember.guild.roles.cache.find(data.RoleID);
-
-    guildMember.roles.add(welcomeRole);
-    client.channels.cache.get(channel).send(`Hello <@${guildMember.user.id}>, welcome to the server!`)
-    client.channels.cache.get(channel).send('https://media.discordapp.net/attachments/908229025099567146/908571572607008788/a.jpg')
-});
+//     guildMember.roles.add(welcomeRole);
+//     client.channels.cache.get('905960857601736736').send(`Welcome <@${guildMember.user.id}> to the server!`)
+//     client.channels.cache.get('905960857601736736').send('https://media.discordapp.net/attachments/908229025099567146/908571572607008788/a.jpg')
+// });
 
 mongoose
     .connect(config.MONGODB_SRV, {
