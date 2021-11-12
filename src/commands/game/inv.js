@@ -17,7 +17,7 @@ module.exports.run = async (client, message, args) => {
     let EssencePoints = profile.EssencePoints;
     const newEmbed = new MessageEmbed()
         .setColor('#EDF1FF')
-        .setTitle(`<@${member}>'s profile`)
+        .setTitle(`${message.author.username}'s profile`)
         .addFields(
             {name: 'Astral Coins', value: "" + AstralCoins},
             {name: 'Essence Points', value: "" + EssencePoints},
