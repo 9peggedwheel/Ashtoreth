@@ -40,7 +40,7 @@ module.exports.run = async (client, message, args) => {
     const profile2 = await profileModel.findOneAndUpdate(
         { UserID: member },
         { $inc: { AstralCoins: -3} },
-        { $addToSet: { Inventory: character } }, {upsert: true}
+        { $addToSet: { Inventory: `${character }` }}, {upsert: true}
     );
 }
 
