@@ -1,8 +1,9 @@
+const Discord = require('discord.js');
 const welcomeModel = require('../models/welcomeModel');
 
 module.exports = async (member) => {
     const data = await welcomeModel.findOne({
-        GuildID: member.guild.id
+        GuildID: member.guild
     });
 
     let channel = client.channels.cache.get(data.ChannelID);
