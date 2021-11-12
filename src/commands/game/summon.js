@@ -36,6 +36,7 @@ module.exports.run = async (client, message, args) => {
         message.channel.send(`You just summoned ${character}!`);
         profile.update({$push: {Inventory: character}});
     } else {
+        message.channel.send(randomNumber);
         message.channel.send(`feels bad`);
     }
 
