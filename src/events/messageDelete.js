@@ -7,7 +7,7 @@ module.exports = async (client, message) => {
         GuildID: message.guild.id
     });
 
-    let channel = client.channels.cache.get(data.channel);
+    let channel = client.channels.cache.get(data.ChannelID);
     let sender = message.author.id;
 
     channel.send(`${sender} deleted ${message}`);
