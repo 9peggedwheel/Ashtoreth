@@ -15,7 +15,7 @@ module.exports = async (client, message) => {
     const newEmbed = new MessageEmbed()
         .setColor('#E7FAFE').
         addFields(
-            {name: "Messaged deleted by " + message.guild.members.cache.get(sender).toString() + " in " + message.guild.channels.cache.get(channel).toString(), value: `${message}`},
+            {name: `${sender} just deleted a message!`, value: `**Messaged deleted by <@${sender}> in ${channel}:**` + "\n" + `${message}`},
         );
 
     channel.send({ embeds: [newEmbed] });
