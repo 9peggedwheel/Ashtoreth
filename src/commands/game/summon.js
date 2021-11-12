@@ -48,8 +48,8 @@ module.exports.run = async (client, message, args) => {
             }
         },
         {
-            $push: {
-                Inventory: character,
+            $addToSet: {
+                Inventory: `${character}`,
             }
         }
     );
