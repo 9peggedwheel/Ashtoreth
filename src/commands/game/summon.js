@@ -14,7 +14,6 @@ module.exports.run = async (client, message, args) => {
         return;
     }
     let AstralCoins = profile.AstralCoins;
-    let Inventory = profile.Inventory;
 
     
     if (AstralCoins < 3) {
@@ -39,19 +38,9 @@ module.exports.run = async (client, message, args) => {
     //     message.channel.send(`feels bad`);
     // }
     const profile2 = await profileModel.findOneAndUpdate(
-        {
-            UserID: member
-        },
-        {
-            $inc: {
-                AstralCoins: -3,
-            }
-        },
-        {
-            $addToSet: {
-                Inventory: character,
-            }
-        }
+        { UserID: member },
+        { $inc: { AstralCoins: -3} },
+        { $addToSet: { Inventory: character } }, {upsert: true}
     );
 }
 
