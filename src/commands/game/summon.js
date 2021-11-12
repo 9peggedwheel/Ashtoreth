@@ -27,6 +27,7 @@ module.exports.run = async (client, message, args) => {
     // const randomNumber = Math.floor(Math.random()*100) + 1;
     // if (randomNumber == 25) {
         const randomIndex = Math.floor(Math.random()*(characterdata.FIVESTARCHARS) + 1);
+        message.channel.send(`${randomIndex}`);
         const character = characterdata.FIVESTARCHAR[randomIndex];
         message.channel.send(`You just summoned ${character}!`);
         profile.update({$push: {Inventory: character}});
