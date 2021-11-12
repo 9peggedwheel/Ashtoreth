@@ -1,5 +1,5 @@
 const profileSchema = require('../../models/profileSchema');
-const characterdata = require('../../..characterdata.json');
+const characterdata = require('../../../characterdata.json');
 const Discord = require("discord.js")
 
 module.exports.run = async (client, message, args) => {
