@@ -11,13 +11,13 @@ module.exports.run = async (client, message, args) => {
             GuildID: message.guild.id
         });
         if (!data) return;
-        let muteRole = member.guild.roles.cache.get(data.RoleID);
+        let muteRole = message.guild.roles.cache.get(data.RoleID);
 
         const data2 = await memberModel.findOne({
             GuildID: message.guild.id
         });
         if (!data2) return;
-        let memberRole = member.guild.roles.cache.get(data2.RoleID);
+        let memberRole = message.guild.roles.cache.get(data2.RoleID);
 
         let memberTarget = message.guild.members.cache.get(member.id);
         
