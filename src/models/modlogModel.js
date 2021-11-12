@@ -5,4 +5,4 @@ const channelSchema = new mongoose.Schema({
     ChannelID: String
 });
 
-const MessageModel = module.exports = mongoose.model('channelModel', channelSchema);
+const MessageModel = module.exports = mongoose.model('modlogModel', channelSchema);
