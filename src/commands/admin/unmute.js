@@ -20,8 +20,8 @@ module.exports.run = async (client, message, args) => {
 
         let memberTarget = message.guild.members.cache.get(member.id);
 
-        memberTarget.roles.remove(memberRole);
-        memberTarget.roles.add(muteRole);
+        memberTarget.roles.remove(muteRole);
+        memberTarget.roles.add(memberRole);
         message.channel.send(`<@${memberTarget.user.id}> has been unmuted`);
     } else {
         message.channel.send("Invalid member");
