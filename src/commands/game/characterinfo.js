@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args) => {
     const tmp2 = message.content.slice(1).split(/ +/);
     const lengthCheck = tmp2.shift().toLowerCase();
 
-    let tmp = message.content.slice(lengthCheck.length);
+    let tmp = message.content.slice(lengthCheck.length + 2);
     tmp = tmp.replace(/\s+/g, '');
     const command = tmp.toLowerCase();
 
