@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
         });
 
         if (!card) {
-            const database = mongoose.connection.db.getCollection('cardmodels');
+            const database = mongoose.connection.db.collection('cardmodels');
             const count = await database.countDocuments();
             const card = new cardModel({
                 CardName: args[0],
