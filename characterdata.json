@@ -1,12 +1,22 @@
 {
-    "FIVESTARCHARS": 3,
+    "FIVESTARCHARS": 9,
     "FIVESTARCHAR": [
         "Artoria Pendragon",
         "Mai Sakurajima",
-        "Shouko Komi"
+        "Shouko Komi",
+        "C.C.",
+        "Zero Two",
+        "Emilia",
+        "Yuuki Asuna",
+        "Levi Ackerman",
+        "Satoru Gojo"
     ],
     "FOURSTARCHAR": [
         "Ichigo",
-        "Madara Uchiha"
+        "Madara Uchiha",
+        "Emiya Shirou"
+    ],
+    "THREESTARCHAR": [
+        "Ikuno"
     ]
 }

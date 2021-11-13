@@ -41,7 +41,14 @@ module.exports.run = async (client, message, args) => {
             { $inc: { AstralCoins: -3}, $addToSet: { Characters: `${character }` }}, {upsert: true}
         );
     } else {
-        message.channel.send(`feels bad`);
+        const randomIndex = Math.floor(Math.random()*((characterdata.THREESTARCHAR).length));
+        const character = characterdata.THREESTARCHAR[randomIndex];
+        message.channel.send(`You summoned a three star`);
+        message.channel.send(`${character}!`);
+        const profile2 = await profileModel.findOneAndUpdate(
+            { UserID: member },
+            { $inc: { AstralCoins: -3}, $addToSet: { Characters: `${character }` }}, {upsert: true}
+        );
     }
 
 }
