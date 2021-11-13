@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cardSchema = new mongoose.Schema({
     CardName: String,
     CharacterName: String,
+    Stars: Number,
     Level: Number,
     Attack: Number,
     Defense: Number,

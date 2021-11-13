@@ -13,11 +13,12 @@ module.exports.run = async (client, message, args) => {
             const card = new cardModel({
                 CardName: args[0],
                 CharacterName: args[0],
+                Stars: args[6],
                 Level: 1,
-                Attack: 100,
-                Defense: 100,
-                Health: 100,
-                Speed: 100,
+                Attack: args[2],
+                Defense: args[3],
+                Health: args[4],
+                Speed: args[5],
                 AbilityID: count + 1,
                 Ability: "N/A",
                 CardImage: args[1]
