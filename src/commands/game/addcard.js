@@ -14,6 +14,7 @@ module.exports.run = async (client, message, args) => {
                 CardName: args[0],
                 CharacterName: args[0],
                 Stars: args[6],
+                Constellation: 1,
                 Level: 1,
                 Attack: args[2],
                 Defense: args[3],

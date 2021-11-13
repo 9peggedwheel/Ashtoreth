@@ -4,6 +4,7 @@ const cardSchema = new mongoose.Schema({
     CardName: String,
     CharacterName: String,
     Stars: Number,
+    Constellation: Number,
     Level: Number,
     Attack: Number,
     Defense: Number,
