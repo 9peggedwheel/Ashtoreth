@@ -31,9 +31,9 @@ module.exports.run = async (client, message, args) => {
                 {name: 'Stars', value: `${stars}`},
                 {name: 'Constellation', value: `${constellation}`},
                 {name: 'Level', value: `${level}`},
+                {name: 'Health', value: `${health}`},
                 {name: 'Attack', value: `${attack}`},
                 {name: 'Defense', value: `${defense}`},
-                {name: 'Health', value: `${health}`},
                 {name: 'Speed', value: `${speed}`},
                 {name: 'Ability', value: `${ability}`},
             )
