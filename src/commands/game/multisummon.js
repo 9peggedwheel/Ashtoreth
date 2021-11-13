@@ -30,7 +30,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send(`${character}!`);
             const profile2 = await profileModel.findOneAndUpdate(
                 { UserID: member },
-                { $inc: { AstralCoins: -3}, $addToSet: { Characters: `${character }` }}, {upsert: true}
+                { $addToSet: { Characters: `${character}` }}, {upsert: true}
             );
         } else if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3 || randomNumber == 4 || randomNumber == 5) {
             let randomIndex = Math.floor(Math.random()*((characterdata.FOURSTARCHAR).length));
@@ -39,7 +39,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send(`${character}!`);
             const profile2 = await profileModel.findOneAndUpdate(
                 { UserID: member },
-                { $inc: { AstralCoins: -3}, $addToSet: { Characters: `${character }` }}, {upsert: true}
+                { $addToSet: { Characters: `${character}` }}, {upsert: true}
             );
         } else {
             let randomIndex = Math.floor(Math.random()*((characterdata.THREESTARCHAR).length));
@@ -48,10 +48,15 @@ module.exports.run = async (client, message, args) => {
             message.channel.send(`${character}!`);
             const profile2 = await profileModel.findOneAndUpdate(
                 { UserID: member },
-                { $inc: { AstralCoins: -3}, $addToSet: { Characters: `${character }` }}, {upsert: true}
+                { $addToSet: { Characters: `${character}` }}, {upsert: true}
             );
         }
     }
+
+    const profile3 = await profileModel.findOneAndUpdate(
+        { UserID: member },
+        { $inc: { AstralCoins: -30}}
+    );
 
 }
 
