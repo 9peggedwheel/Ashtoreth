@@ -2,7 +2,10 @@ const cardModel = require('../../models/cardModel');
 const { MessageEmbed } = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
-    let tmp = message.content.slice(15);
+    const tmp2 = message.content.slice(1).split(/ +/);
+    const lengthCheck = tmp2.shift().toLowerCase();
+
+    let tmp = message.content.slice(lengthCheck.length);
     tmp = tmp.replace(/\s+/g, '');
     const command = tmp.toLowerCase();
 
