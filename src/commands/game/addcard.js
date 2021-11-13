@@ -1,4 +1,5 @@
 const cardModel = require('../../models/cardModel');
+const mongoose = require('mongoose');
 
 module.exports.run = async (client, message, args) => {
     if (message.author.id == "388931842415263744" || message.author.id == "810701832255045633") {
@@ -7,8 +8,18 @@ module.exports.run = async (client, message, args) => {
         });
 
         if (!card) {
+            const database = mongoose.connection.db.getCollection('cardmodels');
+            const count = await database.countDocuments();
             const card = new cardModel({
                 CardName: args[0],
+                CharacterName: args[0],
+                Level: 1,
+                Attack: 100,
+                Defense: 100,
+                Health: 100,
+                Speed: 100,
+                AbilityID: count + 1,
+                Ability: "N/A",
                 CardImage: args[1]
             });
             card.save();
