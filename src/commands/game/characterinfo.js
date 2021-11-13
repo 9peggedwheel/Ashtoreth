@@ -2,8 +2,12 @@ const cardModel = require('../../models/cardModel');
 const { MessageEmbed } = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
+    let tmp = message.content.slice(15);
+    tmp = tmp.replace(/\s+/g, '');
+    const command = tmp.shift().toLowerCase();
+
     const card = await cardModel.findOne({
-        CardName: args[0]
+        CardName: command
     });
 
 
