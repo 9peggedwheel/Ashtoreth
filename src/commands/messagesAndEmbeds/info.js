@@ -4,7 +4,7 @@ const Discord = require("discord.js")
 module.exports.run = async (client, message, args) => {
     const newEmbed = new MessageEmbed()
         .setColor('#EDF1FF')
-        .setImage("https://media.discordapp.net/attachments/905711733019136052/906339115442790440/6y6UOuA.png");
+        .setImage("https://i.imgur.com/6y6UOuA.png");
 
     message.channel.send({ embeds: [newEmbed] });
 
