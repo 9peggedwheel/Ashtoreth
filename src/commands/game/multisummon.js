@@ -1,6 +1,10 @@
 const profileModel = require('../../models/profileModel');
+const cardModel = require('../../models/cardModel');
+const characterModel = require('../../models/characterModel');
 const characterdata = require('../../../characterdata.json');
+const mongoose = require('mongoose');
 const Discord = require("discord.js")
+
 
 module.exports.run = async (client, message, args) => {
     const member = message.author.id;
