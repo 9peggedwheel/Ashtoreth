@@ -1,5 +1,6 @@
 const profileModel = require('../../models/profileModel');
 const { MessageEmbed } = require('discord.js');
+const characterModel = require('../../models/characterModel');
 const Discord = require("discord.js")
 
 module.exports.run = async (client, message, args) => {
@@ -18,9 +19,14 @@ module.exports.run = async (client, message, args) => {
     let Inventory = profile.Characters;
     let invString = "";
     for (let i = 0; i < Inventory.length - 1; i++) {
-        invString += Inventory[i] + ", ";
+        const character = await characterModel.findOne({
+            CharacterID: Inventory[i]
+        });
+        invString += character.CharacterName;
+        if (i != Inventory.length - 1) {
+            invString += ", ";
+        }
     }
-    invString += Inventory[Inventory.length - 1];
     const newEmbed = new MessageEmbed()
         .setColor('#EDF1FF')
         .setTitle(`${message.author.username}'s profile`)

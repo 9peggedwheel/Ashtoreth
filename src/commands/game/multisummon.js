@@ -24,7 +24,7 @@ module.exports.run = async (client, message, args) => {
     for (let i = 0; i < 11; i++) {
         let randomNumber = Math.floor(Math.random()*100) + 1;
         if (randomNumber == 25) {
-            let randomIndex = Math.floor(Math.random()*(characterdata.FIVESTARCHARS));
+            let randomIndex = Math.floor(Math.random()*((characterdata.FIVESTARCHAR).length));
             let character = characterdata.FIVESTARCHAR[randomIndex];
             message.channel.send(`__**You just summoned a five star!**__`);
             message.channel.send(`${character}!`);
