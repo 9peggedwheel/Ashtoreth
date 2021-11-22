@@ -51,6 +51,7 @@ module.exports.run = async (client, message, args) => {
             Ability: card.Ability,
             CardImage: card.CardImage
         });
+        character.save();
         const profile2 = await profileModel.findOneAndUpdate(
             { UserID: member },
             { $inc: { AstralCoins: -3}, $addToSet: { Characters: `${character.CharacterID}` }}, {upsert: true}
@@ -81,6 +82,7 @@ module.exports.run = async (client, message, args) => {
             Ability: card.Ability,
             CardImage: card.CardImage
         });
+        character.save();
         const profile2 = await profileModel.findOneAndUpdate(
             { UserID: member },
             { $inc: { AstralCoins: -3}, $addToSet: { Characters: `${character.CharacterID}` }}, {upsert: true}
@@ -111,6 +113,7 @@ module.exports.run = async (client, message, args) => {
             Ability: card.Ability,
             CardImage: card.CardImage
         });
+        character.save();
         const profile2 = await profileModel.findOneAndUpdate(
             { UserID: member },
             { $inc: { AstralCoins: -3}, $addToSet: { Characters: `${character.CharacterID}` }}, {upsert: true}
