@@ -27,12 +27,12 @@ module.exports.run = async (client, message, args) => {
     const randomNumber = Math.floor(Math.random()*100) + 1;
     if (randomNumber == 25) {
         const randomIndex = Math.floor(Math.random()*((characterdata.FIVESTARCHAR).length));
-        const character = characterdata.FIVESTARCHAR[randomIndex];
-        message.channel.send(`__**You just summoned a five star!**__\n${character}!`);
+        const characterString = characterdata.FIVESTARCHAR[randomIndex];
+        message.channel.send(`__**You just summoned a five star!**__\n${characterString}!`);
         const database = mongoose.connection.db.collection('charactermodels');
         const count = await database.countDocuments();
         const card = await cardModel.findOne({
-            CharacterName: character
+            CharacterName: characterString
         });
 
         const character = new characterModel({
@@ -57,12 +57,12 @@ module.exports.run = async (client, message, args) => {
         );
     } else if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3 || randomNumber == 4 || randomNumber == 5) {
         const randomIndex = Math.floor(Math.random()*((characterdata.FOURSTARCHAR).length));
-        const character = characterdata.FOURSTARCHAR[randomIndex];
-        message.channel.send(`**You just summoned a four star!**\n${character}!`);
+        const characterString = characterdata.FOURSTARCHAR[randomIndex];
+        message.channel.send(`**You just summoned a four star!**\n${characterString}!`);
         const database = mongoose.connection.db.collection('charactermodels');
         const count = await database.countDocuments();
         const card = await cardModel.findOne({
-            CharacterName: character
+            CharacterName: characterString
         });
 
         const character = new characterModel({
@@ -87,12 +87,12 @@ module.exports.run = async (client, message, args) => {
         );
     } else {
         const randomIndex = Math.floor(Math.random()*((characterdata.THREESTARCHAR).length));
-        const character = characterdata.THREESTARCHAR[randomIndex];
-        message.channel.send(`You summoned a three star\n${character}!`);
+        const characterString = characterdata.THREESTARCHAR[randomIndex];
+        message.channel.send(`You summoned a three star\n${characterString}!`);
         const database = mongoose.connection.db.collection('charactermodels');
         const count = await database.countDocuments();
         const card = await cardModel.findOne({
-            CharacterName: character
+            CharacterName: characterString
         });
 
         const character = new characterModel({
