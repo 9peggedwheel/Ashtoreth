@@ -18,7 +18,7 @@ module.exports.run = async (client, message, args) => {
     let EssencePoints = profile.EssencePoints;
     let Inventory = profile.Characters;
     let invString = "";
-    for (let i = 0; i < Inventory.length - 1; i++) {
+    for (let i = 0; i < Inventory.length; i++) {
         const character = await characterModel.findOne({
             CharacterID: Inventory[i]
         });
