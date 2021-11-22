@@ -16,6 +16,7 @@ const characterSchema = new mongoose.Schema({
     Speed: Number,
     AbilityID: Number,
     Ability: String,
+    Familiarity: Number,
     CardImage: String
 });
 
