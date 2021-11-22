@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const characterSchema = new mongoose.Schema({
     CharacterID: Number,
     CardOwner: String,
+    CurrentExp: Number,
+    NeededExp: Number,
     CardName: String,
     CharacterName: String,
     Stars: Number,

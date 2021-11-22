@@ -38,6 +38,8 @@ module.exports.run = async (client, message, args) => {
         const character = new characterModel({
             CharacterID: count + 1,
             CardOwner: member,
+            CurrentExp: 0,
+            NeededExp: 100,
             CardName: card.CardName,
             CharacterName: card.CharacterName,
             Stars: card.Stars,
@@ -69,6 +71,8 @@ module.exports.run = async (client, message, args) => {
         const character = new characterModel({
             CharacterID: count + 1,
             CardOwner: member,
+            CurrentExp: 0,
+            NeededExp: 100,
             CardName: card.CardName,
             CharacterName: card.CharacterName,
             Stars: card.Stars,
@@ -100,6 +104,8 @@ module.exports.run = async (client, message, args) => {
         const character = new characterModel({
             CharacterID: count + 1,
             CardOwner: member,
+            CurrentExp: 0,
+            NeededExp: 100,
             CardName: card.CardName,
             CharacterName: card.CharacterName,
             Stars: card.Stars,

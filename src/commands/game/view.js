@@ -26,6 +26,7 @@ module.exports.run = async (client, message, args) => {
         .setTitle(`${message.author.username}'s ${character.CharacterName}`)
         // .setDescription('' + invString)
         .addFields(
+            {name: 'EXP', value: `${character.CurrentExp} / ${character.NeededExp}`},
             {name: 'Stars', value: `${character.Stars}`},
             {name: 'Constellation', value: `${character.Constellation}`},
             {name: 'Level', value: `${character.Level}`},
