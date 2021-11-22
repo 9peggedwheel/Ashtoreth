@@ -32,6 +32,7 @@ module.exports.run = async (client, message, args) => {
             {name: 'Level', value: `${character.Level}`},
             {name: 'Stats', value: `Health: ${character.Health}\nAttack: ${character.Attack}\nDefense: ${character.Defense}\nSpeed: ${character.Speed}`},
             {name: 'Ability', value: `${character.Ability}`},
+            {name: 'Familiarity', value: `${character.Familiarity}`},
         )
         .setImage(`${character.CardImage}`);
         // .setDescription("Join the support server (Link in ABOUT ME)")

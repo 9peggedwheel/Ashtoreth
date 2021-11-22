@@ -51,6 +51,7 @@ module.exports.run = async (client, message, args) => {
             Speed: card.Speed,
             AbilityID: card.AbilityID,
             Ability: card.Ability,
+            Familiarity: 1,
             CardImage: card.CardImage
         });
         character.save();
@@ -84,6 +85,7 @@ module.exports.run = async (client, message, args) => {
             Speed: card.Speed,
             AbilityID: card.AbilityID,
             Ability: card.Ability,
+            Familiarity: 1,
             CardImage: card.CardImage
         });
         character.save();
@@ -117,6 +119,7 @@ module.exports.run = async (client, message, args) => {
             Speed: card.Speed,
             AbilityID: card.AbilityID,
             Ability: card.Ability,
+            Familiarity: 1,
             CardImage: card.CardImage
         });
         character.save();
