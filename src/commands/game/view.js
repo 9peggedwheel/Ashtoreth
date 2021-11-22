@@ -16,10 +16,10 @@ module.exports.run = async (client, message, args) => {
     }
 
     let Inventory = profile.Characters;
-    if (args[0] > Inventory.length) return message.channel.send("Invalid index");
+    if (args[0] > Inventory.length || args[0] < 1) return message.channel.send("Invalid index");
 
     const character = await characterModel.findOne({
-        CharacterID: Inventory[invNumber + 1]
+        CharacterID: Inventory[invNumber - 1]
     })
     const newEmbed = new MessageEmbed()
         .setColor('#EDF1FF')
