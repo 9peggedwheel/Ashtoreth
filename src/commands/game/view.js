@@ -16,6 +16,8 @@ module.exports.run = async (client, message, args) => {
     }
 
     let Inventory = profile.Characters;
+    if (!args[0]) return message.channel.send("Please specify index");
+    if (isNaN(args[0])) return message.channel.send("Please enter a number");
     if (args[0] > Inventory.length || args[0] < 1) return message.channel.send("Invalid index");
 
     const character = await characterModel.findOne({

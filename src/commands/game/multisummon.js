@@ -75,6 +75,10 @@ module.exports.run = async (client, message, args) => {
                     { $inc: {Constellation: 1},}
                 );
             }
+            const profile2 = await profileModel.findOneAndUpdate(
+                { UserID: member },
+                { $inc: { AstralCoins: -3}}
+            );
         }
     } else if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3 || randomNumber == 4 || randomNumber == 5) {
         const randomIndex = Math.floor(Math.random()*((characterdata.FOURSTARCHAR).length));
@@ -124,6 +128,10 @@ module.exports.run = async (client, message, args) => {
                     { $inc: {Constellation: 1},}
                 );
             }
+            const profile2 = await profileModel.findOneAndUpdate(
+                { UserID: member },
+                { $inc: { AstralCoins: -3}}
+            );
         }
     } else {
         const randomIndex = Math.floor(Math.random()*((characterdata.THREESTARCHAR).length));
@@ -173,6 +181,10 @@ module.exports.run = async (client, message, args) => {
                     { $inc: {Constellation: 1},}
                 );
             }
+            const profile2 = await profileModel.findOneAndUpdate(
+                { UserID: member },
+                { $inc: { AstralCoins: -3}}
+            );
         }
     }
 
