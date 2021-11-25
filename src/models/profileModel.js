@@ -9,7 +9,8 @@ const profileSchema = new mongoose.Schema({
     AstralCoins: Number,
     EssencePoints: Number,
     Characters: [],
-    Inventory: []
+    Inventory: [],
+    Teams: []
 });
 
 const model = mongoose.model('profileModel', profileSchema);
