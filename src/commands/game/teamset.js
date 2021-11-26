@@ -19,7 +19,7 @@ module.exports.run = async (client, message, args) => {
         TeamLeader: message.author.id,
         TeamID: args[0]
     });
-    if (!teamCheck) return message.channel.send(`You do not have a team ${teamCheck.TeamID}`);
+    if (!teamCheck) return message.channel.send(`You do not have a team ${args[0]}`);
 
     if (args[1] == 1) {
         const teamUpdate = await teamModel.findOneAndUpdate(
