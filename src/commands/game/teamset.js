@@ -22,33 +22,33 @@ module.exports.run = async (client, message, args) => {
     if (!teamCheck) return message.channel.send(`You do not have a team ${args[0]}`);
 
     if (args[1] == 1) {
-        const teamUpdate = await teamModel.findOneAndReplace(
+        const teamUpdate = await teamModel.findOneAndUpdate(
             {
                 TeamLeader: message.author.id,
                 TeamID: args[0]
             },
             {
-                CardOneID: profile.Inventory[args[2]]
+                CardOneID: profile.Characters[args[2]]
             }
         );
     } else if (args[1] == 2) {
-        const teamUpdate = await teamModel.findOneAndReplace(
+        const teamUpdate = await teamModel.findOneAndUpdate(
             {
                 TeamLeader: message.author.id,
                 TeamID: args[0]
             },
             {
-                CardTwoID: profile.Inventory[args[2]]
+                CardTwoID: profile.Characters[args[2]]
             }
         );
     } else if (args[1] == 3) {
-        const teamUpdate = await teamModel.findOneAndReplace(
+        const teamUpdate = await teamModel.findOneAndUpdate(
             {
                 TeamLeader: message.author.id,
                 TeamID: args[0]
             },
             {
-                CardThreeID: profile.Inventory[args[2]]
+                CardThreeID: profile.Characters[args[2]]
             }
         );
     } else {
