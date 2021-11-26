@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args) => {
         UserID: message.author.id
     });
 
-    if (args[2] >= profile.Inventory.length) return message.channel.send("Please enter someone in your inventory");
+    if (args[2] >= profile.Characters.length) return message.channel.send("Please enter someone in your inventory");
 
     const teamCheck = await teamModel.findOne({
         TeamLeader: message.author.id,
