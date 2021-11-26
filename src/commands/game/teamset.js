@@ -28,7 +28,7 @@ module.exports.run = async (client, message, args) => {
                 TeamID: args[0]
             },
             {
-                CardOneID: profile.Characters[args[2]]
+                CardOneID: profile.Characters[args[2] - 1]
             }
         );
     } else if (args[1] == 2) {
@@ -38,7 +38,7 @@ module.exports.run = async (client, message, args) => {
                 TeamID: args[0]
             },
             {
-                CardTwoID: profile.Characters[args[2]]
+                CardTwoID: profile.Characters[args[2] - 1]
             }
         );
     } else if (args[1] == 3) {
@@ -48,7 +48,7 @@ module.exports.run = async (client, message, args) => {
                 TeamID: args[0]
             },
             {
-                CardThreeID: profile.Characters[args[2]]
+                CardThreeID: profile.Characters[args[2] - 1]
             }
         );
     } else {
