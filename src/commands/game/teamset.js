@@ -15,27 +15,24 @@ module.exports.run = async (client, message, args) => {
 
     if (args[2] >= profile.Characters.length) return message.channel.send("Please enter someone in your inventory");
 
-    let teamCheck = await teamModel.findOne({
+    const teamCheck = await teamModel.findOne({
         TeamLeader: message.author.id,
         TeamID: args[0]
     });
     if (!teamCheck) return message.channel.send(`You do not have a team ${args[0]}`);
 
     if (args[1] == 1) {
-        teamCheck.save({
-            CardOneID: profile.Inventory[args[2]] 
-        });
-        // const teamUpdate = await teamModel.findOneAndUpdate(
-        //     {
-        //         TeamLeader: message.author.id,
-        //         TeamID: args[0]
-        //     },
-        //     {
-        //         CardOneID: profile.Inventory[args[2]]
-        //     }
-        // );
+        const teamUpdate = await teamModel.findOneAndReplace(
+            {
+                TeamLeader: message.author.id,
+                TeamID: args[0]
+            },
+            {
+                CardOneID: profile.Inventory[args[2]]
+            }
+        );
     } else if (args[1] == 2) {
-        const teamUpdate = await teamModel.findOneAndUpdate(
+        const teamUpdate = await teamModel.findOneAndReplace(
             {
                 TeamLeader: message.author.id,
                 TeamID: args[0]
@@ -45,7 +42,7 @@ module.exports.run = async (client, message, args) => {
             }
         );
     } else if (args[1] == 3) {
-        const teamUpdate = await teamModel.findOneAndUpdate(
+        const teamUpdate = await teamModel.findOneAndReplace(
             {
                 TeamLeader: message.author.id,
                 TeamID: args[0]
