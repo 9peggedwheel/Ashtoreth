@@ -17,6 +17,16 @@ module.exports.run = async (client, message, args) => {
         const CardOne = await characterModel.findOne({
             CharacterID: teamCheck.CardOneID
         });
+        if (teamCheck.CardTwoID != 0) {
+            const CardTwo = await characterModel.findOne({
+                CharacterID: teamCheck.CardTwoID
+            });
+            if (teamCheck.CardThreeID != 0) {
+                const CardThree = await characterModel.findOne({
+                    CharacterID: teamCheck.CardThreeID
+                });
+            }
+        }
     }
     if (teamCheck.CardTwoID != 0) {
         const CardTwo = await characterModel.findOne({
@@ -33,7 +43,7 @@ module.exports.run = async (client, message, args) => {
     .addFields(
         {name: 'Front', value: `${CardOne.CardName}`},
         {name: 'Middle', value: `${CardTwo.CardName}`},
-        {name: 'Middle', value: `${CardThree.CardName}`},
+        {name: 'Back', value: `${CardThree.CardName}`},
     );
     // .setImage("https://i.imgur.com/6y6UOuA.png");
 
