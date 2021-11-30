@@ -22,6 +22,7 @@ module.exports.run = async (client, message, args) => {
         const character = await characterModel.findOne({
             CharacterID: Inventory[i]
         });
+        invString += i + ". ";
         invString += character.CharacterName;
         if (i != Inventory.length - 1) {
             invString += "\n";
