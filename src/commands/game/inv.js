@@ -24,7 +24,7 @@ module.exports.run = async (client, message, args) => {
         });
         invString += character.CharacterName;
         if (i != Inventory.length - 1) {
-            invString += ", ";
+            invString += "\n";
         }
     }
     const newEmbed = new MessageEmbed()

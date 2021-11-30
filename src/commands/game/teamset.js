@@ -31,6 +31,7 @@ module.exports.run = async (client, message, args) => {
                 CardOneID: profile.Characters[args[2] - 1]
             }
         );
+        message.channel.send(`A new character has been set in Team ${teamCheck.TeamName}'s front position`)
     } else if (args[1] == 2) {
         const teamUpdate = await teamModel.findOneAndUpdate(
             {
@@ -41,6 +42,7 @@ module.exports.run = async (client, message, args) => {
                 CardTwoID: profile.Characters[args[2] - 1]
             }
         );
+        message.channel.send(`A new character has been set in Team ${teamCheck.TeamName}'s middle position`)
     } else if (args[1] == 3) {
         const teamUpdate = await teamModel.findOneAndUpdate(
             {
@@ -51,6 +53,7 @@ module.exports.run = async (client, message, args) => {
                 CardThreeID: profile.Characters[args[2] - 1]
             }
         );
+        message.channel.send(`A new character has been set in Team ${teamCheck.TeamName}'s back position`)
     } else {
         return message.channel.send("Please enter a position on the team");
     }
