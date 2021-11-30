@@ -25,31 +25,99 @@ module.exports.run = async (client, message, args) => {
                 const CardThree = await characterModel.findOne({
                     CharacterID: teamCheck.CardThreeID
                 });
+                const newEmbed = new MessageEmbed()
+                .setColor('#EDF1FF')
+                .addFields(
+                    {name: 'Front', value: `${CardOne.CardName}`},
+                    {name: 'Middle', value: `${CardTwo.CardName}`},
+                    {name: 'Back', value: `${CardThree.CardName}`},
+                );
+            
+                message.channel.send({ embeds: [newEmbed] });
+            }
+            else {
+                const newEmbed = new MessageEmbed()
+                .setColor('#EDF1FF')
+                .addFields(
+                    {name: 'Front', value: `${CardOne.CardName}`},
+                    {name: 'Middle', value: `${CardTwo.CardName}`},
+                    {name: 'Back', value: `Empty`},
+                );
+            
+                message.channel.send({ embeds: [newEmbed] });
             }
         }
+        else if (teamCheck.CardThreeID != 0) {
+            const CardThree = await characterModel.findOne({
+                CharacterID: teamCheck.CardThreeID
+            });
+            const newEmbed = new MessageEmbed()
+            .setColor('#EDF1FF')
+            .addFields(
+                {name: 'Front', value: `${CardOne.CardName}`},
+                {name: 'Middle', value: `Empty`},
+                {name: 'Back', value: `${CardThree.CardName}`},
+            );
+        
+            message.channel.send({ embeds: [newEmbed] });
+        }
+        else {
+            const newEmbed = new MessageEmbed()
+            .setColor('#EDF1FF')
+            .addFields(
+                {name: 'Front', value: `${CardOne.CardName}`},
+                {name: 'Middle', value: `Empty`},
+                {name: 'Back', value: `Empty`},
+            );
+            message.channel.send({ embeds: [newEmbed] });
+        }
     }
-    if (teamCheck.CardTwoID != 0) {
+    else if (teamCheck.CardTwoID != 0) {
         const CardTwo = await characterModel.findOne({
             CharacterID: teamCheck.CardTwoID
         });
+        if (teamCheck.CardThreeID != 0) {
+            const CardThree = await characterModel.findOne({
+                CharacterID: teamCheck.CardThreeID
+            });
+            const newEmbed = new MessageEmbed()
+            .setColor('#EDF1FF')
+            .addFields(
+                {name: 'Front', value: `Empty`},
+                {name: 'Middle', value: `${CardTwo.CardName}`},
+                {name: 'Back', value: `${CardThree.CardName}`},
+            );
+        
+            message.channel.send({ embeds: [newEmbed] });
+        }
+        else {
+            const newEmbed = new MessageEmbed()
+            .setColor('#EDF1FF')
+            .addFields(
+                {name: 'Front', value: `Empty`},
+                {name: 'Middle', value: `${CardTwo.CardName}`},
+                {name: 'Back', value: `Empty`},
+            );
+            message.channel.send({ embeds: [newEmbed] });
+        }
     }
-    if (teamCheck.CardThreeID != 0) {
+    else if (teamCheck.CardThreeID != 0) {
         const CardThree = await characterModel.findOne({
             CharacterID: teamCheck.CardThreeID
         });
+        const newEmbed = new MessageEmbed()
+        .setColor('#EDF1FF')
+        .addFields(
+            {name: 'Front', value: `Empty`},
+            {name: 'Middle', value: `Empty`},
+            {name: 'Back', value: `${CardThree.CardName}`},
+        );
+    
+        message.channel.send({ embeds: [newEmbed] });
     }
-    const newEmbed = new MessageEmbed()
-    .setColor('#EDF1FF')
-    .addFields(
-        {name: 'Front', value: `${CardOne.CardName}`},
-        {name: 'Middle', value: `${CardTwo.CardName}`},
-        {name: 'Back', value: `${CardThree.CardName}`},
-    );
-    // .setImage("https://i.imgur.com/6y6UOuA.png");
-
-    message.channel.send({ embeds: [newEmbed] });
-        
-
+    else {
+        message.channel.send("You have an empty team!");
+    }
 }
 
 module.exports.config = {
