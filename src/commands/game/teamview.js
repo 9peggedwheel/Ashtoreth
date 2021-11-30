@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
         TeamLeader: message.author.id,
         TeamID: args[0]
     });
-    if (!teamCheck) return message.channel.send(`You do not have a team ${teamCheck.TeamID}`);
+    if (!teamCheck) return message.channel.send(`You do not have a team ` + args[0]);
     if (teamCheck.CardOneID != 0) {
         const CardOne = await characterModel.findOne({
             CharacterID: teamCheck.CardOneID
@@ -27,6 +27,7 @@ module.exports.run = async (client, message, args) => {
                 });
                 const newEmbed = new MessageEmbed()
                 .setColor('#EDF1FF')
+                .setTitle(`${teamCheck.TeamName}`)
                 .addFields(
                     {name: 'Front', value: `${CardOne.CharacterName}`},
                     {name: 'Middle', value: `${CardTwo.CharacterName}`},
@@ -38,6 +39,7 @@ module.exports.run = async (client, message, args) => {
             else {
                 const newEmbed = new MessageEmbed()
                 .setColor('#EDF1FF')
+                .setTitle(`${teamCheck.TeamName}`)
                 .addFields(
                     {name: 'Front', value: `${CardOne.CharacterName}`},
                     {name: 'Middle', value: `${CardTwo.CharacterName}`},
@@ -53,6 +55,7 @@ module.exports.run = async (client, message, args) => {
             });
             const newEmbed = new MessageEmbed()
             .setColor('#EDF1FF')
+            .setTitle(`${teamCheck.TeamName}`)
             .addFields(
                 {name: 'Front', value: `${CardOne.CharacterName}`},
                 {name: 'Middle', value: `Empty`},
@@ -64,6 +67,7 @@ module.exports.run = async (client, message, args) => {
         else {
             const newEmbed = new MessageEmbed()
             .setColor('#EDF1FF')
+            .setTitle(`${teamCheck.TeamName}`)
             .addFields(
                 {name: 'Front', value: `${CardOne.CharacterName}`},
                 {name: 'Middle', value: `Empty`},
@@ -82,6 +86,7 @@ module.exports.run = async (client, message, args) => {
             });
             const newEmbed = new MessageEmbed()
             .setColor('#EDF1FF')
+            .setTitle(`${teamCheck.TeamName}`)
             .addFields(
                 {name: 'Front', value: `Empty`},
                 {name: 'Middle', value: `${CardTwo.CharacterName}`},
@@ -93,6 +98,7 @@ module.exports.run = async (client, message, args) => {
         else {
             const newEmbed = new MessageEmbed()
             .setColor('#EDF1FF')
+            .setTitle(`${teamCheck.TeamName}`)
             .addFields(
                 {name: 'Front', value: `Empty`},
                 {name: 'Middle', value: `${CardTwo.CharacterName}`},
@@ -107,6 +113,7 @@ module.exports.run = async (client, message, args) => {
         });
         const newEmbed = new MessageEmbed()
         .setColor('#EDF1FF')
+        .setTitle(`${teamCheck.TeamName}`)
         .addFields(
             {name: 'Front', value: `Empty`},
             {name: 'Middle', value: `Empty`},
