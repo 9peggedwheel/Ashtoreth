@@ -28,9 +28,9 @@ module.exports.run = async (client, message, args) => {
                 const newEmbed = new MessageEmbed()
                 .setColor('#EDF1FF')
                 .addFields(
-                    {name: 'Front', value: `${CardOne.CardName}`},
-                    {name: 'Middle', value: `${CardTwo.CardName}`},
-                    {name: 'Back', value: `${CardThree.CardName}`},
+                    {name: 'Front', value: `${CardOne.CharacterName}`},
+                    {name: 'Middle', value: `${CardTwo.CharacterName}`},
+                    {name: 'Back', value: `${CardThree.CharacterName}`},
                 );
             
                 message.channel.send({ embeds: [newEmbed] });
@@ -39,8 +39,8 @@ module.exports.run = async (client, message, args) => {
                 const newEmbed = new MessageEmbed()
                 .setColor('#EDF1FF')
                 .addFields(
-                    {name: 'Front', value: `${CardOne.CardName}`},
-                    {name: 'Middle', value: `${CardTwo.CardName}`},
+                    {name: 'Front', value: `${CardOne.CharacterName}`},
+                    {name: 'Middle', value: `${CardTwo.CharacterName}`},
                     {name: 'Back', value: `Empty`},
                 );
             
@@ -54,9 +54,9 @@ module.exports.run = async (client, message, args) => {
             const newEmbed = new MessageEmbed()
             .setColor('#EDF1FF')
             .addFields(
-                {name: 'Front', value: `${CardOne.CardName}`},
+                {name: 'Front', value: `${CardOne.CharacterName}`},
                 {name: 'Middle', value: `Empty`},
-                {name: 'Back', value: `${CardThree.CardName}`},
+                {name: 'Back', value: `${CardThree.CharacterName}`},
             );
         
             message.channel.send({ embeds: [newEmbed] });
@@ -65,7 +65,7 @@ module.exports.run = async (client, message, args) => {
             const newEmbed = new MessageEmbed()
             .setColor('#EDF1FF')
             .addFields(
-                {name: 'Front', value: `${CardOne.CardName}`},
+                {name: 'Front', value: `${CardOne.CharacterName}`},
                 {name: 'Middle', value: `Empty`},
                 {name: 'Back', value: `Empty`},
             );
@@ -84,8 +84,8 @@ module.exports.run = async (client, message, args) => {
             .setColor('#EDF1FF')
             .addFields(
                 {name: 'Front', value: `Empty`},
-                {name: 'Middle', value: `${CardTwo.CardName}`},
-                {name: 'Back', value: `${CardThree.CardName}`},
+                {name: 'Middle', value: `${CardTwo.CharacterName}`},
+                {name: 'Back', value: `${CardThree.CharacterName}`},
             );
         
             message.channel.send({ embeds: [newEmbed] });
@@ -95,7 +95,7 @@ module.exports.run = async (client, message, args) => {
             .setColor('#EDF1FF')
             .addFields(
                 {name: 'Front', value: `Empty`},
-                {name: 'Middle', value: `${CardTwo.CardName}`},
+                {name: 'Middle', value: `${CardTwo.CharacterName}`},
                 {name: 'Back', value: `Empty`},
             );
             message.channel.send({ embeds: [newEmbed] });
@@ -110,7 +110,7 @@ module.exports.run = async (client, message, args) => {
         .addFields(
             {name: 'Front', value: `Empty`},
             {name: 'Middle', value: `Empty`},
-            {name: 'Back', value: `${CardThree.CardName}`},
+            {name: 'Back', value: `${CardThree.CharacterName}`},
         );
     
         message.channel.send({ embeds: [newEmbed] });
