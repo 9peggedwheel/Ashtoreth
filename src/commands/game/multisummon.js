@@ -31,7 +31,7 @@ module.exports.run = async (client, message, args) => {
         if (randomNumber == 25) {
             const randomIndex = Math.floor(Math.random()*((characterdata.FIVESTARCHAR).length));
             const characterString = characterdata.FIVESTARCHAR[randomIndex];
-            summonMessage += `__**You just summoned a five star!**__\n${characterString}!`;
+            summonMessage += `__**You just summoned a five star!**__\n${characterString}!\n`;
             const database = mongoose.connection.db.collection('charactermodels');
             const count = await database.countDocuments();
             const characterCheck = await characterModel.findOne({
@@ -80,7 +80,7 @@ module.exports.run = async (client, message, args) => {
         } else if (randomNumber == 1 || randomNumber == 2 || randomNumber == 3 || randomNumber == 4 || randomNumber == 5) {
             const randomIndex = Math.floor(Math.random()*((characterdata.FOURSTARCHAR).length));
             const characterString = characterdata.FOURSTARCHAR[randomIndex];
-            summonMessage += `**You just summoned a four star!**\n${characterString}!`;
+            summonMessage += `**You just summoned a four star!**\n${characterString}!\n`;
             const database = mongoose.connection.db.collection('charactermodels');
             const count = await database.countDocuments();
             const characterCheck = await characterModel.findOne({
@@ -129,7 +129,7 @@ module.exports.run = async (client, message, args) => {
         } else {
             const randomIndex = Math.floor(Math.random()*((characterdata.THREESTARCHAR).length));
             const characterString = characterdata.THREESTARCHAR[randomIndex];
-            summonMessage += `You summoned a three star\n${characterString}!`;
+            summonMessage += `You summoned a three star\n${characterString}!\n`;
             const database = mongoose.connection.db.collection('charactermodels');
             const count = await database.countDocuments();
             const characterCheck = await characterModel.findOne({
