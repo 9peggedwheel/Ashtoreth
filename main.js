@@ -21,7 +21,7 @@ client.setup();
 // });
 
 mongoose
-    .connect(config.MONGODB_SRV, {
+    .connect(process.env.MONGOOSEPW, {
     })
     .then(() =>{
         console.log('Connected to the database');
