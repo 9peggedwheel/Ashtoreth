@@ -1,5 +1,5 @@
 const teamModel = require('../../models/teamModel');
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, MessageAttachment } = require('discord.js');
 const characterModel = require('../../models/characterModel');
 const mongoose = require('mongoose');
 const mergeImages = require('merge-images');
@@ -46,10 +46,11 @@ module.exports.run = async (client, message, args) => {
                     {name: 'Front', value: `${CardOne.CharacterName}`},
                     {name: 'Middle', value: `${CardTwo.CharacterName}`},
                     {name: 'Back', value: `${CardThree.CharacterName}`},
-                )
-                .setImage(canvas.toBuffer());
+                );
             
                 message.channel.send({ embeds: [newEmbed] });
+                const attachment = new MessageAttachment(canvas.toBuffer(), 'image.png');
+                message.channel.send({ files: [attachment] });
             }
             else {
                 const newEmbed = new MessageEmbed()
