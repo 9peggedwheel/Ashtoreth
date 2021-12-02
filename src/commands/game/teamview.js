@@ -46,11 +46,12 @@ module.exports.run = async (client, message, args) => {
                     {name: 'Front', value: `${CardOne.CharacterName}`},
                     {name: 'Middle', value: `${CardTwo.CharacterName}`},
                     {name: 'Back', value: `${CardThree.CharacterName}`},
-                );
+                )
+                .setImage(canvas.toBuffer(), 'image.png');
             
                 message.channel.send({ embeds: [newEmbed] });
-                const attachment = new MessageAttachment(canvas.toBuffer(), 'image.png');
-                message.channel.send({ files: [attachment] });
+                // const attachment = new MessageAttachment(canvas.toBuffer(), 'image.png');
+                // message.channel.send({ files: [attachment] });
             }
             else {
                 const newEmbed = new MessageEmbed()
