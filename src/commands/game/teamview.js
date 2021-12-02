@@ -49,7 +49,7 @@ module.exports.run = async (client, message, args) => {
                 );
             
                 message.channel.send({ embeds: [newEmbed] });
-                const attachment = new MessageAttachment(canvas.toBuffer(), 'image.jpg');
+                const attachment = new MessageAttachment(canvas.toBuffer(), 'image.jpeg');
                 message.channel.send({ files: [attachment] });
             }
             else {
