@@ -28,16 +28,16 @@ module.exports.run = async (client, message, args) => {
                     CharacterID: teamCheck.CardThreeID
                 });
 
-                const canvas = Canvas.createCanvas(700, 250);
+                const canvas = Canvas.createCanvas(1000, 451);
                 const context = canvas.getContext('2d');
-                const background = await Canvas.loadImage('https://i.ibb.co/J5mD5t1/a.jpg');
-                const cardOneImage = await Canvas.loadImage('https://i.ibb.co/J5mD5t1/a.jpg');
-                const cardTwoImage = await Canvas.loadImage('https://i.ibb.co/J5mD5t1/a.jpg');
-                const cardThreeImage = await Canvas.loadImage('https://i.ibb.co/J5mD5t1/a.jpg');
+                const background = await Canvas.loadImage('https://i.ibb.co/GRC8BWF/cardbg.jpg');
+                const cardOneImage = await Canvas.loadImage(CardOne.CardImage);
+                const cardTwoImage = await Canvas.loadImage(CardTwo.CardImage);
+                const cardThreeImage = await Canvas.loadImage(CardThree.CardImage);
                 context.drawImage(background, 0, 0, canvas.width, canvas.height);
-                context.drawImage(cardOneImage, 25, 0, 200, 200);
-                context.drawImage(cardTwoImage, 50, 0, 200, 200);
-                context.drawImage(cardThreeImage, 75, 0, 200, 200);
+                context.drawImage(cardOneImage, 10, 10, 320, 431);
+                context.drawImage(cardTwoImage, 340, 10, 320, 431);
+                context.drawImage(cardThreeImage, 670, 10, 320, 431);
 
                 const newEmbed = new MessageEmbed()
                 .setColor('#EDF1FF')
