@@ -39,7 +39,7 @@ module.exports.run = async (client, message, args) => {
                     {name: 'Middle', value: `${CardTwo.CharacterName}`},
                     {name: 'Back', value: `${CardThree.CharacterName}`},
                 )
-                .addImage(                
+                .setImage(                
                     mergeImages([
                         { src: 'https/i.imgur.com/Lbg2ACQ.jpg', x: 0, y: 0} ,
                         { src: cardOneImage, x: 50, y: 0 },
