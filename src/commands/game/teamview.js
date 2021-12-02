@@ -48,7 +48,7 @@ module.exports.run = async (client, message, args) => {
                     {name: 'Middle', value: `${CardTwo.CharacterName}`},
                     {name: 'Back', value: `${CardThree.CharacterName}`},
                 )
-                .setImage(canvas.toBuffer('image/png'));
+                .setImage(canvas.toDataURL());
             
                 message.channel.send({ embeds: [newEmbed] });
             }
