@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 const characterModel = require('../../models/characterModel');
 const mongoose = require('mongoose');
 const mergeImages = require('merge-images');
-const { Canvas, Image } = require('canvas');
+const Canvas = require('canvas');
 
 module.exports.run = async (client, message, args) => {
     if (!args[0]) return message.reply("Please specify team");
@@ -31,6 +31,17 @@ module.exports.run = async (client, message, args) => {
                 let cardTwoImage = CardTwo.CardImage;
                 let cardThreeImage = CardThree.CardImage;
 
+                const canvas = Canvas.createCanvas(700, 250);
+                const context = canvas.getContext('2d');
+                const background = await Canvas.loadImage('../../../cardbg.jpg');
+                context.drawImage(background, 0, 0, canvas.width, canvas.height);
+                const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
+                context.drawImage(cardOneImage, 25, 0, 200, 200);
+                context.drawImage(cardTwoImage, 50, 0, 200, 200);
+                context.drawImage(cardThreeImage, 75, 0, 200, 200);
+
+	            interaction.reply({ files: [attachment] });
+
                 const newEmbed = new MessageEmbed()
                 .setColor('#EDF1FF')
                 .setTitle(`${teamCheck.TeamName}`)
@@ -39,18 +50,7 @@ module.exports.run = async (client, message, args) => {
                     {name: 'Middle', value: `${CardTwo.CharacterName}`},
                     {name: 'Back', value: `${CardThree.CharacterName}`},
                 )
-                .setImage(                
-                    mergeImages([
-                        { src: 'https/i.imgur.com/Lbg2ACQ.jpg', x: 0, y: 0} ,
-                        { src: cardOneImage, x: 50, y: 0 },
-                        { src: cardTwoImage, x: 0, y: 0},
-                        { src: cardThreeImage, x: 50, y: 0}
-                    ], {
-                        Canvas: Canvas,
-                        Image: Image
-                    })
-                        .then(b64 => document.querySelector('img').src = b64)
-                );
+                .setImage(canvas.toBuffer());
             
                 message.channel.send({ embeds: [newEmbed] });
             }
@@ -150,4 +150,13 @@ module.exports.config = {
     aliases: []
 }
 
-//https://i.imgur.com/Lbg2ACQ.jpeg
+//                    mergeImages([
+//     { src: 'https/i.imgur.com/Lbg2ACQ.jpg', x: 0, y: 0} ,
+//     { src: cardOneImage, x: 50, y: 0 },
+//     { src: cardTwoImage, x: 0, y: 0},
+//     { src: cardThreeImage, x: 50, y: 0}
+// ], {
+//     Canvas: Canvas,
+//     Image: Image
+// })
+//     .then(b64 => document.querySelector('img').src = b64)
