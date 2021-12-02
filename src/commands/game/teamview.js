@@ -33,9 +33,8 @@ module.exports.run = async (client, message, args) => {
 
                 const canvas = Canvas.createCanvas(700, 250);
                 const context = canvas.getContext('2d');
-                const background = await Canvas.loadImage('../../../cardbg.jpg');
+                const background = await Canvas.loadImage('https://i.imgur.com/8ILEFCD.jpeg');
                 context.drawImage(background, 0, 0, canvas.width, canvas.height);
-                const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
                 context.drawImage(cardOneImage, 25, 0, 200, 200);
                 context.drawImage(cardTwoImage, 50, 0, 200, 200);
                 context.drawImage(cardThreeImage, 75, 0, 200, 200);
