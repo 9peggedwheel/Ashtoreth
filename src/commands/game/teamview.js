@@ -2,6 +2,8 @@ const teamModel = require('../../models/teamModel');
 const { MessageEmbed } = require('discord.js');
 const characterModel = require('../../models/characterModel');
 const mongoose = require('mongoose');
+const mergeImages = require('merge-images');
+const { Canvas, Image } = require('canvas');
 
 module.exports.run = async (client, message, args) => {
     if (!args[0]) return message.reply("Please specify team");
@@ -25,6 +27,10 @@ module.exports.run = async (client, message, args) => {
                 const CardThree = await characterModel.findOne({
                     CharacterID: teamCheck.CardThreeID
                 });
+                let cardOneImage = CardOne.CardImage;
+                let cardTwoImage = CardTwo.CardImage;
+                let cardThreeImage = CardThree.CardImage;
+
                 const newEmbed = new MessageEmbed()
                 .setColor('#EDF1FF')
                 .setTitle(`${teamCheck.TeamName}`)
@@ -32,6 +38,18 @@ module.exports.run = async (client, message, args) => {
                     {name: 'Front', value: `${CardOne.CharacterName}`},
                     {name: 'Middle', value: `${CardTwo.CharacterName}`},
                     {name: 'Back', value: `${CardThree.CharacterName}`},
+                )
+                .addImage(                
+                    mergeImages([
+                        { src: 'https/i.imgur.com/Lbg2ACQ.jpg', x: 0, y: 0} ,
+                        { src: cardOneImage, x: 50, y: 0 },
+                        { src: cardTwoImage, x: 0, y: 0},
+                        { src: cardThreeImage, x: 50, y: 0}
+                    ], {
+                        Canvas: Canvas,
+                        Image: Image
+                    })
+                        .then(b64 => document.querySelector('img').src = b64)
                 );
             
                 message.channel.send({ embeds: [newEmbed] });
@@ -131,3 +149,5 @@ module.exports.config = {
     name: 'teamview',
     aliases: []
 }
+
+//https://i.imgur.com/Lbg2ACQ.jpeg
