@@ -31,15 +31,13 @@ module.exports.run = async (client, message, args) => {
                 const canvas = Canvas.createCanvas(700, 250);
                 const context = canvas.getContext('2d');
                 const background = await Canvas.loadImage('https://i.imgur.com/8ILEFCD.jpeg');
-                const cardOneImage = await Canvas.loadImage(`${CardOne.CardImage}`);
-                const cardTwoImage = await Canvas.loadImage(`${CardTwo.CardImage}`);
-                const cardThreeImage = await Canvas.loadImage(`${CardThree.CardImage}`);
+                const cardOneImage = await Canvas.loadImage(CardOne.CardImage);
+                const cardTwoImage = await Canvas.loadImage(CardTwo.CardImage);
+                const cardThreeImage = await Canvas.loadImage(CardThree.CardImage);
                 context.drawImage(background, 0, 0, canvas.width, canvas.height);
                 context.drawImage(cardOneImage, 25, 0, 200, 200);
                 context.drawImage(cardTwoImage, 50, 0, 200, 200);
                 context.drawImage(cardThreeImage, 75, 0, 200, 200);
-
-	            interaction.reply({ files: [attachment] });
 
                 const newEmbed = new MessageEmbed()
                 .setColor('#EDF1FF')
