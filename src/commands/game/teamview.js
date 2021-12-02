@@ -30,10 +30,10 @@ module.exports.run = async (client, message, args) => {
 
                 const canvas = Canvas.createCanvas(700, 250);
                 const context = canvas.getContext('2d');
-                const background = await Canvas.loadImage('https://i.imgur.com/8ILEFCD.jpeg');
-                const cardOneImage = await Canvas.loadImage(CardOne.CardImage);
-                const cardTwoImage = await Canvas.loadImage(CardTwo.CardImage);
-                const cardThreeImage = await Canvas.loadImage(CardThree.CardImage);
+                const background = await Canvas.loadImage('https://i.ibb.co/J5mD5t1/a.jpg');
+                const cardOneImage = await Canvas.loadImage('https://i.ibb.co/J5mD5t1/a.jpg');
+                const cardTwoImage = await Canvas.loadImage('https://i.ibb.co/J5mD5t1/a.jpg');
+                const cardThreeImage = await Canvas.loadImage('https://i.ibb.co/J5mD5t1/a.jpg');
                 context.drawImage(background, 0, 0, canvas.width, canvas.height);
                 context.drawImage(cardOneImage, 25, 0, 200, 200);
                 context.drawImage(cardTwoImage, 50, 0, 200, 200);
@@ -49,7 +49,7 @@ module.exports.run = async (client, message, args) => {
                 );
             
                 message.channel.send({ embeds: [newEmbed] });
-                const attachment = new MessageAttachment(canvas.toBuffer(), 'image.jpeg');
+                const attachment = new MessageAttachment(canvas.toBuffer(), 'image.png');
                 message.channel.send({ files: [attachment] });
             }
             else {
