@@ -38,7 +38,7 @@ module.exports.run = async (client, message, args) => {
                 context.drawImage(cardOneImage, 10, 10, 320, 431);
                 context.drawImage(cardTwoImage, 340, 10, 320, 431);
                 context.drawImage(cardThreeImage, 670, 10, 320, 431);
-                // const attachment = new MessageAttachment(canvas.toBuffer(), 'image.png');
+                const attachment = new MessageAttachment(canvas.toBuffer(), 'image.png');
 
                 const newEmbed = new MessageEmbed()
                 .setColor('#EDF1FF')
@@ -47,10 +47,11 @@ module.exports.run = async (client, message, args) => {
                     {name: 'Front', value: `${CardOne.CharacterName}`},
                     {name: 'Middle', value: `${CardTwo.CharacterName}`},
                     {name: 'Back', value: `${CardThree.CharacterName}`},
-                )
-                .setImage('<img src="' + canvas.toDataURL() + '" />');
+                );
             
                 message.channel.send({ embeds: [newEmbed] });
+                message.channel.send({ files: [attachment] });
+
             }
             else {
                 const newEmbed = new MessageEmbed()
