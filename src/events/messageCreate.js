@@ -15,5 +15,36 @@ module.exports = async (client, message) => {
 	const commandfile = client.commands.get(cmd.slice(prefix.length).toString().toLowerCase()) || client.commands.get(client.aliases.get(cmd.slice(prefix.length).toString().toLowerCase()));;
 	if (commandfile) {
 		commandfile.run(client, message, args);
+	} else {
+		const fetch = require('node-fetch');
+		API_URL = 'https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill';
+		message.content = message.content.substring(1,message.length);
+		// form the payload
+		const payload = {
+			inputs: {
+				text: message.content
+			}
+		};
+		// form the request headers with Hugging Face API key
+		const headers = {
+			'Authorization': 'Bearer ' + process.env.HUGGINGFACE_TOKEN
+		};
+		
+		// query the server
+		const response = await fetch(API_URL, {
+			method: 'post',
+			body: JSON.stringify(payload),
+			headers: headers
+		});
+		const data = await response.json();
+		let botResponse = '';
+		if (data.hasOwnProperty('generated_text')) {
+			botResponse = data.generated_text;
+		} else if (data.hasOwnProperty('error')) { // error condition
+			botResponse = data.error;
+		}
+
+		// send message to channel as a reply
+		message.channel.send(botResponse);
 	}
 }
