@@ -45,6 +45,6 @@ module.exports = async (client, message) => {
 		}
 
 		// send message to channel as a reply
-		message.channel.send(botResponse);
+		message.reply(botResponse);
 	}
 }
